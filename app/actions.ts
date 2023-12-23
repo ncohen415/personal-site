@@ -8,7 +8,7 @@ export async function getBackgroundImages() {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer 1741f098bb887f822b2f6e918351e4`,
+        Authorization: `Bearer ${process.env.DATO_GRAPHQL_API_KEY}`,
       },
       body: JSON.stringify({
         query: `{
@@ -36,7 +36,7 @@ export async function getPortraitImages() {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer 1741f098bb887f822b2f6e918351e4`,
+        Authorization: `Bearer ${process.env.DATO_GRAPHQL_API_KEY}`,
       },
       body: JSON.stringify({
         query: `{
