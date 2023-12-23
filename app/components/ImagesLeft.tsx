@@ -18,6 +18,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   const [pImageIndex, setPImageIndex] = useState(0)
   const [changeImage, setChangeImage] = useState(true)
   const [pChangeImage, setPChangeImage] = useState(true)
+  const [pOpacity, setPOpacity] = useState(1)
   const [loading, setLoading] = useState(1)
 
   const switchBgImage = () => {
@@ -35,11 +36,11 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
       setPImageIndex(0)
       setPChangeImage(!pChangeImage)
     } else {
-      setLoading(0)
+      setPOpacity(0)
       setTimeout(() => {
         setPImageIndex(imageIndex + 1)
         setPChangeImage(!pChangeImage)
-        setLoading(1)
+        setPOpacity(1)
       }, 1000)
     }
   }
@@ -53,7 +54,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   useEffect(() => {
     setTimeout(() => {
       switchPImage()
-    }, 4250)
+    }, 4500)
   }, [pChangeImage])
 
   return (
@@ -104,7 +105,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
             WebkitBackgroundSize: "1086px 724px",
           }}
         >
-          <div style={{ opacity: loading, transition: "opacity 1s ease-in" }}>
+          <div style={{ opacity: pOpacity, transition: "opacity 1s ease-in" }}>
             <Image
               className={styles.frontImage}
               src={portraitImages[pImageIndex]?.image.url}
