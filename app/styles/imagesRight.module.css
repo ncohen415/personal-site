@@ -3,6 +3,12 @@
   height: 300px;
   width: 200px;
   transition: all 1s ease-in-out;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 3px;
+  background-attachment: fixed;
+  background-position: top right;
+  background-size: 1086px 724px;
 }
 .right {
   display: flex;

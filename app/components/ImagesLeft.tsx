@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styles from "@/app/styles/imagesLeft.module.css"
 import Image from "next/image"
 
@@ -33,8 +33,12 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
 
   const switchPImage = async () => {
     if (imageIndex === portraitImages.length - 1) {
-      setPImageIndex(0)
-      setPChangeImage(!pChangeImage)
+      setPOpacity(0)
+      setTimeout(() => {
+        setPImageIndex(0)
+        setPChangeImage(!pChangeImage)
+        setPOpacity(1)
+      }, 1000)
     } else {
       setPOpacity(0)
       setTimeout(() => {
@@ -54,7 +58,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   useEffect(() => {
     setTimeout(() => {
       switchPImage()
-    }, 4500)
+    }, 4000)
   }, [pChangeImage])
 
   return (
@@ -64,28 +68,15 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           className={styles.image}
           style={{
             flex: "0 1 50%",
-            borderRadius: "15px",
-            padding: "2rem",
-            margin: "3px",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "bottom left",
-            backgroundSize: "auto",
             backgroundImage: `url(${bgImages[imageIndex].image.url})`,
-            WebkitBackgroundSize: "1086px 724px",
           }}
         />
         <div
           className={styles.image}
           style={{
             flex: "0 1 50%",
-            borderRadius: "15px",
-            padding: "2rem",
-            margin: "3px",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "bottom left",
-            backgroundSize: "auto",
+
             backgroundImage: `url(${bgImages[imageIndex]?.image.url})`,
-            WebkitBackgroundSize: "1086px 724px",
           }}
         />
       </div>
@@ -105,12 +96,18 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
             WebkitBackgroundSize: "1086px 724px",
           }}
         >
-          <div style={{ opacity: pOpacity, transition: "opacity 1s ease-in" }}>
+          <div
+            style={{
+              opacity: pOpacity,
+              transition: "opacity 1s ease-in",
+              zIndex: 1,
+            }}
+          >
             <Image
               className={styles.frontImage}
               src={portraitImages[pImageIndex]?.image.url}
-              width={600}
-              height={900}
+              width={portraitImages[pImageIndex]?.image.width * 1.5}
+              height={portraitImages[pImageIndex]?.image.height * 1.5}
               alt=""
             />
           </div>

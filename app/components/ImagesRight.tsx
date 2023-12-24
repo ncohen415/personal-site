@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import styles from "@/app/styles/imagesRight.module.css"
-import { Red_Hat_Text } from "next/font/google"
+import { Red_Hat_Text, Archivo_Black, Archivo } from "next/font/google"
 
 interface ImagesRightProps {
   aboutText: string
@@ -10,6 +10,8 @@ interface ImagesRightProps {
 }
 
 const redHatText = Red_Hat_Text({ subsets: ["latin"], weight: ["400", "700"] })
+const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
+const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
 
 const ImagesRight: React.FC<ImagesRightProps> = ({
   images,
@@ -35,53 +37,37 @@ const ImagesRight: React.FC<ImagesRightProps> = ({
   useEffect(() => {
     setTimeout(() => {
       switchImage()
-    }, 4000)
+    }, 5000)
   }, [changeImage])
 
   return (
     <div className={styles.right}>
-      <h3 className={`${styles.aboutHeading} ${redHatText.className}`}>
+      <h3 className={`${styles.aboutHeading} ${archivoBlack.className}`}>
         About
       </h3>
-      <p className={`${styles.aboutText} ${redHatText.className}`}>
-        {aboutText}
-      </p>
+      <p className={`${styles.aboutText} ${archivo.className}`}>{aboutText}</p>
       <div className={styles.buttonWrapper}>
-        <button className={`${styles.button} ${redHatText.className}`}>
+        {/* <button className={`${styles.button} ${redHatText.className}`}>
           See More
-        </button>
+        </button> */}
       </div>
       <div style={{ display: "flex" }}>
         <div
           className={styles.image}
           style={{
             flex: "0 1 60%",
-            borderRadius: "15px",
-            padding: "2rem",
-            margin: "3px",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "bottom right",
-            backgroundSize: "auto",
             backgroundImage: `url(${
               !loading && images[imageIndex]?.image.url
             })`,
-            WebkitBackgroundSize: "1086px 724px",
           }}
         />
         <div
           className={styles.image}
           style={{
             flex: "0 1 40%",
-            borderRadius: "15px",
-            padding: "2rem",
-            margin: "3px",
-            backgroundAttachment: "fixed",
-            backgroundPosition: "bottom right",
-            backgroundSize: "auto",
             backgroundImage: `url(${
               !loading && images[imageIndex]?.image.url
             })`,
-            WebkitBackgroundSize: "1086px 724px",
           }}
         />
       </div>

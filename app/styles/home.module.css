@@ -8,10 +8,12 @@
   position: relative;
 }
 .heading {
-  font-size: 150px;
+  font-size: 125px;
   stroke-width: 4px;
   z-index: 0;
   color: #2a2727;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .subHeading {
   position: absolute;

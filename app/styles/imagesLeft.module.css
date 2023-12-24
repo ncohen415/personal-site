@@ -10,6 +10,14 @@
   height: 300px;
   width: 200px;
   transition: background-image 1s ease-in-out;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 3px;
+  background-attachment: fixed;
+  background-position: bottom left;
+  background-size: auto;
+  background-size: 1086px 724px;
+  flex: 0;
 }
 
 .left .frontImage {
@@ -20,4 +28,15 @@
   margin-left: auto;
   bottom: 0;
   transition: opacity 1s ease-in-out;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.portraitContainer {
+  transition: opacity 1s ease-in;
+  z-index: 1;
 }

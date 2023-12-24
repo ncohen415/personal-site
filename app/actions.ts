@@ -42,7 +42,9 @@ export async function getPortraitImages() {
         query: `{
             allImages(filter: {imageType: {eq: "no_bg_portrait"}}) {
               image {
-                url
+                url,
+                width,
+                height
               }
               imageColor
               imageType
