@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import styles from "@/app/styles/imagesLeft.module.css"
 import Image from "next/image"
+import useWindowDimensions from "@/app/hooks/useWindowDimensions"
 
 interface ImagesLeftProps {
   bgImages: Array<Object>
@@ -20,46 +21,33 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   const [pChangeImage, setPChangeImage] = useState(true)
   const [pOpacity, setPOpacity] = useState(1)
   const [loading, setLoading] = useState(1)
+  const wd = useWindowDimensions()
 
-  const switchBgImage = () => {
-    if (imageIndex === bgImages.length - 1) {
-      setImageIndex(0)
-      setChangeImage(!changeImage)
-    } else {
-      setImageIndex(imageIndex + 1)
-      setChangeImage(!changeImage)
-    }
-  }
+  const [image, setImage] = useState([bgImages, portraitImages])
 
-  const switchPImage = async () => {
-    if (imageIndex === portraitImages.length - 1) {
-      setPOpacity(0)
-      setTimeout(() => {
-        setPImageIndex(0)
-        setPChangeImage(!pChangeImage)
+  const switchImages = () => {
+    image.map((imageArray) => {
+      imageArray.map((image) => {
+        if (imageIndex === imageArray.length - 1) {
+          setImageIndex(0)
+          setChangeImage(!changeImage)
+        } else {
+          setImageIndex(imageIndex + 1)
+          setChangeImage(!changeImage)
+        }
         setPOpacity(1)
-      }, 1000)
-    } else {
-      setPOpacity(0)
-      setTimeout(() => {
-        setPImageIndex(imageIndex + 1)
-        setPChangeImage(!pChangeImage)
-        setPOpacity(1)
-      }, 1000)
-    }
+      })
+    })
   }
 
   useEffect(() => {
     setTimeout(() => {
-      switchBgImage()
-    }, 5000)
-  }, [changeImage])
-
-  useEffect(() => {
+      setPOpacity(0)
+    }, 3000)
     setTimeout(() => {
-      switchPImage()
+      switchImages()
     }, 4000)
-  }, [pChangeImage])
+  }, [changeImage])
 
   return (
     <div className={styles.left}>
@@ -68,7 +56,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           className={styles.image}
           style={{
             flex: "0 1 50%",
-            backgroundImage: `url(${bgImages[imageIndex].image.url})`,
+            backgroundImage: `url(${image[0][imageIndex].image.url})`,
           }}
         />
         <div
@@ -76,7 +64,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           style={{
             flex: "0 1 50%",
 
-            backgroundImage: `url(${bgImages[imageIndex]?.image.url})`,
+            backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
           }}
         />
       </div>
@@ -92,7 +80,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
             backgroundAttachment: "fixed",
             backgroundPosition: "bottom left",
             backgroundSize: "auto",
-            backgroundImage: `url(${bgImages[imageIndex]?.image.url})`,
+            backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
             WebkitBackgroundSize: "1086px 724px",
           }}
         >
@@ -105,9 +93,15 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           >
             <Image
               className={styles.frontImage}
-              src={portraitImages[pImageIndex]?.image.url}
-              width={portraitImages[pImageIndex]?.image.width * 1.5}
-              height={portraitImages[pImageIndex]?.image.height * 1.5}
+              src={image[1][imageIndex]?.image.url}
+              width={
+                image[1][imageIndex]?.image.width *
+                (wd?.width > 920 ? 1.5 : 1.3)
+              }
+              height={
+                image[1][imageIndex]?.image.height *
+                (wd?.width > 920 ? 1.5 : 1.3)
+              }
               alt=""
             />
           </div>

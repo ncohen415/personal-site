@@ -25,9 +25,7 @@
 }
 
 .palletContainer {
-  display: flex;
-  padding: 0 2rem 0 2rem;
-  justify-content: flex-end;
+  display: none;
 }
 
 .pallet {
@@ -40,5 +38,17 @@
 
 .hero {
   display: flex;
+  flex-direction: column-reverse;
   padding: 0 2rem 0 2rem;
+}
+
+@media (min-width: 920px) {
+  .hero {
+    flex-direction: row;
+  }
+  .palletContainer {
+    display: flex;
+    padding: 0 2rem 0 2rem;
+    justify-content: flex-end;
+  }
 }

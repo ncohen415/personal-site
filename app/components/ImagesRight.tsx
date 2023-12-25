@@ -37,7 +37,7 @@ const ImagesRight: React.FC<ImagesRightProps> = ({
   useEffect(() => {
     setTimeout(() => {
       switchImage()
-    }, 5000)
+    }, 4000)
   }, [changeImage])
 
   return (

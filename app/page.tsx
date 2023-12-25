@@ -19,7 +19,14 @@ export default async function Home() {
   const date = new Date("Mar 1, 2020")
 
   return (
-    <React.Fragment>
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       <div
         style={{ height: "2rem", padding: "0 2rem 0 2rem", marginTop: "2rem" }}
       >
@@ -65,13 +72,13 @@ export default async function Home() {
           </li>
         </ul>
       </div>
-      <div className={styles.headingContainer}>
+      {/* <div className={styles.headingContainer}>
         <div className={styles.nameWrapper}>
           <h1 className={`${modak.className} ${styles.heading}`}>
             YOOOOOOOOOOOOoOOO
           </h1>
         </div>
-      </div>
+      </div> */}
 
       <div className={styles.palletContainer}>
         <div className={`${styles.pallet} bg-tintedBlack`} />
@@ -93,14 +100,10 @@ export default async function Home() {
         vape, authentic fam snackwave skateboard umami distillery next level.
         Small batch pitchfork fam meh, thundercats paleo jean shorts bicycle
         rights irony occupy try-hard flexitarian. Mlkshk cupping tilde chia
-        truffaut vinyl bespoke cornhole ugh hammock locavore. Gorpcore lyft
-        iceland, deep v asymmetrical vexillologist artisan fingerstache neutra
-        tousled coloring book gochujang. Cornhole locavore ramps normcore,
-        marxism tacos plaid you probably haven't heard of them tote bag viral
-        lo-fi fanny pack.`}
+        truffaut vinyl bespoke cornhole ugh hammock locavore.`}
           images={backgroundImages.data.allImages}
         />
       </div>
-    </React.Fragment>
+    </div>
   )
 }

@@ -19,7 +19,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-white`}>
         <Header />
-        <main>{children}</main>
+        <main
+          style={{
+            height: "calc(100vh - 70px)",
+            display: "flex",
+            flexDirection: "column",
+            paddingBottom: "2rem",
+          }}
+        >
+          {children}
+        </main>
       </body>
     </html>
   )
