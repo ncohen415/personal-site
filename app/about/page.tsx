@@ -13,11 +13,11 @@ const About = () => {
         </div>
         <div className={styles.text}>
           <p>
-            I'm baby pork belly put a bird on it kombucha listicle you probably
-            haven't heard of them retro. Gluten-free whatever actually, bushwick
-            ennui everyday carry pok pok mumblecore forage brunch. Lyft bitters
-            hexagon leggings marfa pop-up. Selfies 90's mukbang pinterest
-            cardigan copper mug praxis seitan.
+            I&apos;m baby pork belly put a bird on it kombucha listicle you
+            probably haven&apos;t heard of them retro. Gluten-free whatever
+            actually, bushwick ennui everyday carry pok pok mumblecore forage
+            brunch. Lyft bitters hexagon leggings marfa pop-up. Selfies
+            90&apos;s mukbang pinterest cardigan copper mug praxis seitan.
           </p>
           <br />
           <p>
