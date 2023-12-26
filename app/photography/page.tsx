@@ -1,8 +1,8 @@
 import React from "react"
 import PageLayout from "../components/PageLayout"
 
-const page = () => {
+const Photography = () => {
   return <PageLayout>page</PageLayout>
 }
 
-export default page
+export default Photography

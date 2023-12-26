@@ -4,7 +4,7 @@ import styles from "@/app/styles/about.module.css"
 import Image from "next/image"
 import Waves from "@/public/images/waves.jpeg"
 
-const page = () => {
+const About = () => {
   return (
     <PageLayout>
       <div className={styles.innerWrapper}>
@@ -56,4 +56,4 @@ const page = () => {
   )
 }
 
-export default page
+export default About

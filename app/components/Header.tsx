@@ -13,16 +13,6 @@ const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
 const Header = () => {
   const [toggleHeader, setToggleHeader] = useState(true)
 
-  //   <motion.div
-  //   animate={product ? "open" : "closed"}
-  //   variants={{
-  //     open: { opacity: 1, height: "fit-content", width: "100%" },
-  //     closed: { opacity: 0, height: "0px", width: "100%" },
-  //   }}
-  //   transition={{ duration: 0.75 }}
-  // style={{ minHeight: "500px" }}
-  // >
-
   return (
     <div className={styles.container}>
       <nav className={styles.navContainer}>
