@@ -3,10 +3,20 @@ import React, { useState, useEffect } from "react"
 import styles from "@/app/styles/imagesRight.module.css"
 import { Red_Hat_Text, Archivo_Black, Archivo } from "next/font/google"
 
+interface ImageInfo {
+  url: string
+}
+
+interface Image {
+  image: ImageInfo
+  imageColor: string
+  imageType: string
+}
+
 interface ImagesRightProps {
   aboutText: string
   startIndex: number
-  images: Array<Object>
+  images: Array<Image>
 }
 
 const redHatText = Red_Hat_Text({ subsets: ["latin"], weight: ["400", "700"] })

@@ -2,11 +2,33 @@
 import React, { useState, useEffect, useRef } from "react"
 import styles from "@/app/styles/imagesLeft.module.css"
 import Image from "next/image"
-import useWindowDimensions from "@/app/hooks/useWindowDimensions"
+
+interface BgImageInfo {
+  url: string
+  width: any
+  height: any
+}
+interface PImageInfo {
+  url: string
+  width: number
+  height: number
+}
+
+interface BgImage {
+  image: BgImageInfo
+  imageColor: string
+  imageType: string
+}
+
+interface PImage {
+  image: PImageInfo
+  imageColor: string
+  imageType: string
+}
 
 interface ImagesLeftProps {
-  bgImages: Array<Object>
-  portraitImages: Array<Object>
+  bgImages: Array<BgImage>
+  portraitImages: Array<PImage>
   startIndex: number
 }
 
@@ -21,10 +43,9 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   const [pChangeImage, setPChangeImage] = useState(true)
   const [pOpacity, setPOpacity] = useState(1)
   const [loading, setLoading] = useState(1)
-  const wd = useWindowDimensions()
 
   const [image, setImage] = useState([bgImages, portraitImages])
-
+  console.log(portraitImages)
   const switchImages = () => {
     image.map((imageArray) => {
       imageArray.map((image) => {
@@ -48,7 +69,6 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
       switchImages()
     }, 4000)
   }, [changeImage])
-  console.log(wd)
 
   return (
     <div className={styles.left}>
@@ -57,7 +77,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           className={styles.image}
           style={{
             flex: "0 1 50%",
-            backgroundImage: `url(${image[0][imageIndex].image.url})`,
+            backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
             marginRight: "1.5px",
           }}
         />
@@ -93,14 +113,8 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
             <Image
               className={styles.frontImage}
               src={image[1][imageIndex]?.image.url}
-              width={
-                image[1][imageIndex]?.image.width *
-                (wd?.width > 920 ? 1.5 : 1.3)
-              }
-              height={
-                image[1][imageIndex]?.image.height *
-                (wd?.width > 920 ? 1.5 : 1.3)
-              }
+              width={image[1][imageIndex]?.image.width * 1.3}
+              height={image[1][imageIndex]?.image.height * 1.3}
               alt=""
             />
           </div>
