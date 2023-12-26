@@ -6,6 +6,7 @@ import React, { useEffect } from "react"
 import ImagesLeft from "./components/ImagesLeft"
 import ImagesRight from "./components/ImagesRight"
 import { ChevronDown } from "react-feather"
+import PageLayout from "@/app/components/PageLayout"
 
 const modak = Modak({ subsets: ["latin"], weight: ["400"] })
 const whisper = Whisper({ subsets: ["latin"], weight: ["400"] })
@@ -19,59 +20,7 @@ export default async function Home() {
   const date = new Date("Mar 1, 2020")
 
   return (
-    <div
-      style={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
-    >
-      <div
-        style={{ height: "2rem", padding: "0 2rem 0 2rem", marginTop: "2rem" }}
-      >
-        <ul
-          className={archivoBlack.className}
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            fontSize: "",
-          }}
-        >
-          <li style={{ flex: "0 1 40%", fontWeight: "bold" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              CREDENTIAL{" "}
-              <ChevronDown size={13} style={{ marginLeft: ".5rem" }} />
-            </div>
-            <ul style={{ display: "flex" }}>
-              <li style={{ fontSize: "12px" }} className={archivo.className}>
-                SOFTWARE ENGINEER - PHOTOGRAPHER
-              </li>
-            </ul>
-          </li>
-          <li style={{ flex: "0 1 25%", fontWeight: "bold" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              STARTED <ChevronDown size={13} style={{ marginLeft: ".5rem" }} />
-            </div>
-            <ul>
-              <li style={{ fontSize: "12px" }} className={archivo.className}>
-                MAR, 2020
-              </li>
-            </ul>
-          </li>
-          <li style={{ flex: "0 1 35%", fontWeight: "bold" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              Instagram{" "}
-              <ChevronDown size={13} style={{ marginLeft: ".5rem" }} />
-            </div>
-            <ul>
-              <li style={{ fontSize: "12px" }} className={archivo.className}>
-                @NATELCOHEN
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <PageLayout>
       {/* <div className={styles.headingContainer}>
         <div className={styles.nameWrapper}>
           <h1 className={`${modak.className} ${styles.heading}`}>
@@ -87,7 +36,7 @@ export default async function Home() {
         <div className={`${styles.pallet} bg-tintedGray`} />
         <div className={`${styles.pallet} bg-paleGray`} />
       </div>
-      <div className={styles.hero}>
+      <div className={styles.hero} style={{ height: "100%" }}>
         <ImagesLeft
           startIndex={0}
           bgImages={backgroundImages.data.allImages}
@@ -95,15 +44,10 @@ export default async function Home() {
         />
         <ImagesRight
           startIndex={1}
-          aboutText={`Vegan gluten-free meh, 8-bit ugh mixtape man braid yr +1 aesthetic
-        letterpress. Try-hard edison bulb four dollar toast sriracha polaroid
-        vape, authentic fam snackwave skateboard umami distillery next level.
-        Small batch pitchfork fam meh, thundercats paleo jean shorts bicycle
-        rights irony occupy try-hard flexitarian. Mlkshk cupping tilde chia
-        truffaut vinyl bespoke cornhole ugh hammock locavore.`}
+          aboutText={`I'm baby kickstarter blog solarpunk art party, letterpress keytar literally. Blog DSA echo park forage, health goth godard lomo pork belly af salvia dreamcatcher hexagon seitan master cleanse. Lumbersexual iPhone stumptown unicorn tilde. Celiac flannel kogi marxism, green juice tousled bicycle rights pug banjo tilde bespoke. Helvetica try-hard air plant irony next level cred yuccie beard pok pok kogi iceland truffaut aesthetic master cleanse fixie.`}
           images={backgroundImages.data.allImages}
         />
       </div>
-    </div>
+    </PageLayout>
   )
 }

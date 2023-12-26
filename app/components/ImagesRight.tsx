@@ -42,20 +42,28 @@ const ImagesRight: React.FC<ImagesRightProps> = ({
 
   return (
     <div className={styles.right}>
-      <h3 className={`${styles.aboutHeading} ${archivoBlack.className}`}>
-        About
-      </h3>
-      <p className={`${styles.aboutText} ${archivo.className}`}>{aboutText}</p>
-      <div className={styles.buttonWrapper}>
-        {/* <button className={`${styles.button} ${redHatText.className}`}>
-          See More
-        </button> */}
+      <div
+        style={{ display: "flex", flex: "0 1 50%", flexDirection: "column" }}
+      >
+        <h3 className={`${styles.aboutHeading} ${archivoBlack.className}`}>
+          About
+        </h3>
+        <p className={`${styles.aboutText} ${archivo.className}`}>
+          {aboutText}
+        </p>
       </div>
-      <div style={{ display: "flex" }}>
+      {/* <div className={styles.buttonWrapper}>
+        <button className={`${styles.button} ${redHatText.className}`}>
+          See More
+        </button>
+      </div> */}
+      <div style={{ display: "flex", flex: " 0 1 50%" }}>
         <div
           className={styles.image}
           style={{
+            height: "100%",
             flex: "0 1 60%",
+            marginRight: "1.5px",
             backgroundImage: `url(${
               !loading && images[imageIndex]?.image.url
             })`,
@@ -64,7 +72,9 @@ const ImagesRight: React.FC<ImagesRightProps> = ({
         <div
           className={styles.image}
           style={{
+            height: "100%",
             flex: "0 1 40%",
+            marginLeft: "1.5px",
             backgroundImage: `url(${
               !loading && images[imageIndex]?.image.url
             })`,

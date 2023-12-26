@@ -1,21 +1,20 @@
 .left {
   display: flex;
   flex: 0 1 50%;
+  min-height: 100%;
   flex-direction: column;
 }
 .left .image {
   /* border: 2px solid #2a2727; */
   background-color: #fffffc;
-  height: 300px;
-  width: 200px;
+  min-height: 300px;
   transition: background-image 1s ease-in-out;
   border-radius: 15px;
   padding: 2rem;
-  margin: 3px;
   background-attachment: fixed;
-  background-position: bottom left;
-  background-size: auto;
-  background-size: 1086px 724px;
+  background-position: left center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
   flex: 0;
 }
 
@@ -42,6 +41,6 @@
 
 @media (min-width: 920px) {
   .left {
-    padding-right: 1.5rem;
+    margin-right: 1.5rem;
   }
 }

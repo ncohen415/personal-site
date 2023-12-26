@@ -48,40 +48,39 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
       switchImages()
     }, 4000)
   }, [changeImage])
+  console.log(wd)
 
   return (
     <div className={styles.left}>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flex: "0 1 50%" }}>
         <div
           className={styles.image}
           style={{
             flex: "0 1 50%",
             backgroundImage: `url(${image[0][imageIndex].image.url})`,
+            marginRight: "1.5px",
           }}
         />
         <div
           className={styles.image}
           style={{
             flex: "0 1 50%",
-
             backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
+            marginLeft: "1.5px",
           }}
         />
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flex: "0 1 50%" }}>
         <div
           className={styles.image}
           style={{
             flex: "0 1 100%",
-            borderRadius: "15px",
-            padding: "2rem",
-            margin: "3px",
+            marginTop: "3px",
             position: "relative",
             backgroundAttachment: "fixed",
-            backgroundPosition: "bottom left",
-            backgroundSize: "auto",
+            backgroundPosition: "left center",
+            backgroundSize: "auto 100%",
             backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
-            WebkitBackgroundSize: "1086px 724px",
           }}
         >
           <div

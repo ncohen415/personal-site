@@ -1,0 +1,7 @@
+.pageLayoutContainer {
+  /* display: flex; */
+  /* flex-direction: column; */
+  padding-bottom: 2rem;
+  min-height: 100vh;
+  height: fit-content;
+}
