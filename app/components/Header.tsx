@@ -92,7 +92,7 @@ const Header = () => {
         <ul className={`${archivoBlack.className} ${styles.subNavList}`}>
           <li style={{ flex: "0 1 50%" }}>
             <div className={styles.subNavListItemTitle}>
-              CREDENTIAL{" "}
+              CREDENTIALS{" "}
               <ChevronDown size={13} style={{ marginLeft: ".5rem" }} />
             </div>
             <ul style={{ display: "flex" }}>
