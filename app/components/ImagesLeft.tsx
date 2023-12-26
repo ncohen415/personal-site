@@ -108,9 +108,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           >
             <Image
               className={styles.frontImage}
-              src={
-                image && image?.length ? image[1][imageIndex]?.image.url : ""
-              }
+              src={image && image[1][imageIndex]?.image.url}
               width={image && image[1][imageIndex]?.image.width * 1.3}
               height={image && image[1][imageIndex]?.image.height * 1.3}
               alt=""
