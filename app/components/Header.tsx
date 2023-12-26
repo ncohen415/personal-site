@@ -34,7 +34,7 @@ const Header = () => {
         <div className={styles.menuContainer}>
           <motion.div
             className={styles.desktopNav}
-            initial={"closed"}
+            initial={"open"}
             animate={toggleHeader ? "open" : "closed"}
             variants={{
               open: { opacity: 1, x: 0 },
@@ -67,7 +67,7 @@ const Header = () => {
       </nav>
       <motion.div
         className={styles.mobileNav}
-        initial={"closed"}
+        initial={"open"}
         animate={toggleHeader ? "open" : "closed"}
         variants={{
           open: { opacity: 1, y: 0 },
