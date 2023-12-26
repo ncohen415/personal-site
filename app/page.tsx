@@ -13,7 +13,7 @@ const whisper = Whisper({ subsets: ["latin"], weight: ["400"] })
 const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
 
-export default async function Home() {
+export default async function Page() {
   // QUERIES
   const backgroundImages = await getBackgroundImages()
   const portraitImages = await getPortraitImages()
