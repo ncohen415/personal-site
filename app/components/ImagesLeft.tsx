@@ -45,7 +45,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   const [loading, setLoading] = useState(1)
 
   const [image, setImage] = useState([bgImages, portraitImages])
-  console.log(portraitImages)
+
   const switchImages = () => {
     image.map((imageArray) => {
       imageArray.map((image) => {
@@ -77,7 +77,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           className={styles.image}
           style={{
             flex: "0 1 50%",
-            backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
+            backgroundImage: `url(${image && image[0][imageIndex]?.image.url})`,
             marginRight: "1.5px",
           }}
         />
@@ -85,7 +85,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           className={styles.image}
           style={{
             flex: "0 1 50%",
-            backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
+            backgroundImage: `url(${image && image[0][imageIndex]?.image.url})`,
             marginLeft: "1.5px",
           }}
         />
@@ -100,7 +100,7 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
             backgroundAttachment: "fixed",
             backgroundPosition: "left center",
             backgroundSize: "auto 100%",
-            backgroundImage: `url(${image[0][imageIndex]?.image.url})`,
+            backgroundImage: `url(${image && image[0][imageIndex]?.image.url})`,
           }}
         >
           <div
@@ -112,9 +112,9 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           >
             <Image
               className={styles.frontImage}
-              src={image[1][imageIndex]?.image.url}
-              width={image[1][imageIndex]?.image.width * 1.3}
-              height={image[1][imageIndex]?.image.height * 1.3}
+              src={image && image[1][imageIndex]?.image.url}
+              width={image && image[1][imageIndex]?.image.width * 1.3}
+              height={image && image[1][imageIndex]?.image.height * 1.3}
               alt=""
             />
           </div>
