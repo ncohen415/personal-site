@@ -38,12 +38,8 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
   startIndex,
 }) => {
   const [imageIndex, setImageIndex] = useState(startIndex)
-  const [pImageIndex, setPImageIndex] = useState(0)
   const [changeImage, setChangeImage] = useState(true)
-  const [pChangeImage, setPChangeImage] = useState(true)
   const [pOpacity, setPOpacity] = useState(1)
-  const [loading, setLoading] = useState(1)
-
   const [image, setImage] = useState([bgImages, portraitImages])
 
   const switchImages = () => {
@@ -112,7 +108,9 @@ const ImagesLeft: React.FC<ImagesLeftProps> = ({
           >
             <Image
               className={styles.frontImage}
-              src={image && image[1][imageIndex]?.image.url}
+              src={
+                image && image?.length ? image[1][imageIndex]?.image.url : ""
+              }
               width={image && image[1][imageIndex]?.image.width * 1.3}
               height={image && image[1][imageIndex]?.image.height * 1.3}
               alt=""
