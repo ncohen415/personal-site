@@ -1,12 +1,9 @@
-import Image from "next/image"
+import React, { useEffect, useState } from "react"
 import styles from "@/app/styles/home.module.css"
 import { Modak, Whisper, Archivo_Black, Archivo } from "next/font/google"
-import { getBackgroundImages, getPortraitImages } from "@/app/actions"
-import React, { useEffect } from "react"
-import ImagesLeft from "@/app/components/ImagesLeft"
-import ImagesRight from "@/app/components/ImagesRight"
-import { ChevronDown } from "react-feather"
 import PageLayout from "@/app/components/PageLayout"
+import HomePageHero from "@/app/components/HomePageHero"
+import { Linkedin, Instagram } from "react-feather"
 
 const modak = Modak({ subsets: ["latin"], weight: ["400"] })
 const whisper = Whisper({ subsets: ["latin"], weight: ["400"] })
@@ -15,39 +12,59 @@ const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
 
 export default async function Page() {
   // QUERIES
-  const backgroundImages = await getBackgroundImages()
-  const portraitImages = await getPortraitImages()
-  const date = new Date("Mar 1, 2020")
-
+  // const backgroundImages = await getBackgroundImages()
+  // const portraitImages = await getPortraitImages()
   return (
-    <PageLayout>
-      {/* <div className={styles.headingContainer}>
-        <div className={styles.nameWrapper}>
-          <h1 className={`${modak.className} ${styles.heading}`}>
-            YOOOOOOOOOOOOoOOO
-          </h1>
+    <div className={styles.container}>
+      <div className={styles.innerWrapper}>
+        <div className={styles.title}>
+          <div>
+            <h1
+              className={archivoBlack.className}
+              style={{ fontSize: "2.5rem" }}
+            >
+              Nate Cohen
+            </h1>
+            <h3 style={{ fontSize: "1.15rem" }} className={archivo.className}>
+              Software Engineer
+            </h3>
+          </div>
         </div>
-      </div> */}
+        <div className={styles.about}>
+          <p>
+            I'm baby kinfolk deep v coloring book tofu tumeric seitan.
+            Gluten-free activated charcoal kickstarter craft beer godard small
+            batch. Hammock health goth marfa, cliche godard helvetica neutra
+            succulents. Jianbing wayfarers DSA, gastropub intelligentsia
+            taxidermy venmo. Cornhole farm-to-table post-ironic, palo santo
+            freegan green juice succulents literally mixtape synth polaroid
+            yuccie affogato. VHS typewriter vice forage gochujang.
+          </p>
+        </div>
+        <div className={styles.social}>
+          <Linkedin
+            className={styles.icon}
+            size={35}
+            strokeWidth={1}
+            color="#fff"
+            style={{ margin: ".5rem" }}
+          />
+          <Instagram
+            className={styles.icon}
+            size={35}
+            strokeWidth={1}
+            color="#fff"
+            style={{ margin: ".5rem" }}
+          />
 
-      <div className={styles.palletContainer}>
-        <div className={`${styles.pallet} bg-tintedBlack`} />
-        <div className={`${styles.pallet} bg-paleBlack`} />
-        <div className={`${styles.pallet} bg-shadedGray`} />
-        <div className={`${styles.pallet} bg-tintedGray`} />
-        <div className={`${styles.pallet} bg-paleGray`} />
+          <button
+            className={`${styles.button} ${archivo.className}`}
+            style={{ margin: ".5rem" }}
+          >
+            Contact
+          </button>
+        </div>
       </div>
-      <div className={styles.hero} style={{ height: "100%" }}>
-        <ImagesLeft
-          startIndex={0}
-          bgImages={backgroundImages.data.allImages}
-          portraitImages={portraitImages.data.allImages}
-        />
-        <ImagesRight
-          startIndex={1}
-          aboutText={`I'm baby kickstarter blog solarpunk art party, letterpress keytar literally. Blog DSA echo park forage, health goth godard lomo pork belly af salvia dreamcatcher hexagon seitan master cleanse. Lumbersexual iPhone stumptown unicorn tilde. Celiac flannel kogi marxism, green juice tousled bicycle rights pug banjo tilde bespoke. Helvetica try-hard air plant irony next level cred yuccie beard pok pok kogi iceland truffaut aesthetic master cleanse fixie.`}
-          images={backgroundImages.data.allImages}
-        />
-      </div>
-    </PageLayout>
+    </div>
   )
 }

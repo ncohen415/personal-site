@@ -15,6 +15,7 @@ export async function getBackgroundImages() {
             allImages(filter: {imageType: {eq: "background"}}) {
               image {
                 url
+                height
               }
               imageColor
               imageType
