@@ -4,7 +4,7 @@ import Header from "@/app/components/Header"
 import styles from "@/app/styles/pageLayout.module.css"
 
 interface Image {
-  image: Object
+  image: any
   imageColor: string
   imageType: string
 }
@@ -16,18 +16,18 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   const [imageIndex, setImageIndex] = useState(0)
   const [changeImage, setChangeImage] = useState(false)
-  const switchImages = () => {
-    images?.map((bgImage) => {
-      if (imageIndex === images?.length - 1) {
-        setImageIndex(0)
-      } else {
-        setImageIndex(imageIndex + 1)
-      }
-      setChangeImage(!changeImage)
-    })
-  }
 
   useEffect(() => {
+    const switchImages = () => {
+      images?.map((bgImage) => {
+        if (imageIndex === images?.length - 1) {
+          setImageIndex(0)
+        } else {
+          setImageIndex(imageIndex + 1)
+        }
+        setChangeImage(!changeImage)
+      })
+    }
     setTimeout(() => {
       switchImages()
     }, 5000)
