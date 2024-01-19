@@ -17,21 +17,21 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   const [imageIndex, setImageIndex] = useState(0)
   const [changeImage, setChangeImage] = useState(false)
 
+  const switchImages = () => {
+    images?.map((bgImage) => {
+      if (imageIndex === images?.length - 1) {
+        setImageIndex(0)
+      } else {
+        setImageIndex(imageIndex + 1)
+      }
+      setChangeImage(!changeImage)
+    })
+  }
   useEffect(() => {
-    const switchImages = () => {
-      images?.map((bgImage) => {
-        if (imageIndex === images?.length - 1) {
-          setImageIndex(0)
-        } else {
-          setImageIndex(imageIndex + 1)
-        }
-        setChangeImage(!changeImage)
-      })
-    }
     setTimeout(() => {
       switchImages()
     }, 5000)
-  }, [changeImage])
+  }, [changeImage, switchImages])
 
   return (
     <main
