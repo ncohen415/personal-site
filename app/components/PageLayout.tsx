@@ -29,7 +29,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
       }
       setChangeImage(!changeImage)
     })
-  }, [changeImage])
+  }, [])
 
   useEffect(() => {
     setTimeout(() => {
