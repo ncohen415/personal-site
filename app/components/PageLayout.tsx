@@ -10,8 +10,8 @@ interface Image {
 }
 
 interface PageLayoutProps {
-  images: Array<Image>
-  children: React.ReactNode
+  images?: Array<Image>
+  children?: React.ReactNode
 }
 const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   const [imageIndex, setImageIndex] = useState(0)
