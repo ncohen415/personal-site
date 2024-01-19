@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import Header from "@/app/components/Header"
 import styles from "@/app/styles/pageLayout.module.css"
 
@@ -17,7 +17,10 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   const [imageIndex, setImageIndex] = useState(0)
   const [changeImage, setChangeImage] = useState(false)
 
-  const switchImages = () => {
+  // const switchImages = () => {
+
+  // }
+  const switchImages = useCallback(() => {
     images?.map((bgImage) => {
       if (imageIndex === images?.length - 1) {
         setImageIndex(0)
@@ -26,7 +29,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
       }
       setChangeImage(!changeImage)
     })
-  }
+  }, [changeImage])
+
   useEffect(() => {
     setTimeout(() => {
       switchImages()
