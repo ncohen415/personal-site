@@ -31,7 +31,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
     setTimeout(() => {
       switchImages()
     }, 5000)
-  }, [changeImage, switchImages])
+  }, [switchImages])
 
   return (
     <main
