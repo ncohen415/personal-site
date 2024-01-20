@@ -17,9 +17,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   const [imageIndex, setImageIndex] = useState(0)
   const [changeImage, setChangeImage] = useState(false)
 
-  // const switchImages = () => {
-
-  // }
   const switchImages = useCallback(() => {
     images?.map((bgImage) => {
       if (imageIndex === images?.length - 1) {

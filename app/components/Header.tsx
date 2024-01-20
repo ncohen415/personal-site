@@ -3,7 +3,7 @@ import styles from "@/app/styles/header.module.css"
 import { Archivo_Black, Archivo } from "next/font/google"
 import Link from "next/link"
 import { Menu } from "react-feather"
-import { ChevronDown } from "react-feather"
+import { X } from "react-feather"
 import { motion } from "framer-motion"
 import { Cross } from "hamburger-react"
 
@@ -15,7 +15,10 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.menuButtonContainer}>
+      <div
+        onClick={() => setToggleMenu(!toggleMenu)}
+        className={styles.menuButtonContainer}
+      >
         <p style={{ padding: "0 16px 0 16px" }}>Menu</p>
         <Cross
           direction="left"
@@ -29,13 +32,41 @@ const Header = () => {
         animate={toggleMenu ? "open" : "closed"}
         initial={"closed"}
         variants={{
-          open: { opacity: 1, height: "100vh", width: "400px", x: "0" },
-          closed: { opacity: 0, height: "100vh", width: "400px", x: "-100%" },
+          open: {
+            opacity: 1,
+            height: "100vh",
+            width: `${
+              window !== undefined && window?.innerWidth < 802
+                ? "100%"
+                : "400px"
+            }`,
+            x: "0",
+          },
+          closed: {
+            opacity: 0,
+            height: "100vh",
+            width: `${
+              window !== undefined && window?.innerWidth < 802
+                ? "100%"
+                : "400px"
+            }`,
+            x: "-100%",
+          },
         }}
         transition={{ duration: 0.4 }}
       >
+        <X
+          className={styles.icon}
+          size={35}
+          strokeWidth={1}
+          color="#fff"
+          onClick={() => setToggleMenu(false)}
+        />
+
         <div className={styles.title}>
-          <h1 className={archivoBlack.className}>Nate Cohen</h1>
+          <Link onClick={() => setToggleMenu(false)} href={"/"}>
+            <h1 className={archivoBlack.className}>Nate Cohen</h1>
+          </Link>
           <h3 className={archivo.className}>Software Engineer</h3>
           <ul>
             <li className={`${styles.menuItem} ${archivoBlack.className}`}>
@@ -56,7 +87,9 @@ const Header = () => {
           </ul>
         </div>
         <div>
-          <button className={styles.button}>Contact</button>
+          <a href={`mailto:nate.cohen415@gmail.com`} className={styles.button}>
+            Contact
+          </a>
         </div>
       </motion.div>
     </div>

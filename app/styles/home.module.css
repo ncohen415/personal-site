@@ -5,6 +5,10 @@
   display: flex;
   background-color: rgba(105, 105, 105, 0.6);
   min-height: 250px;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .title {
@@ -29,6 +33,13 @@
   justify-content: center;
   align-items: center;
   padding: 0 1rem 0 1rem;
+}
+
+.about > p {
+  display: none;
+}
+.about > a {
+  display: block;
 }
 .icon {
   margin: 0.5rem;
@@ -71,4 +82,19 @@
   box-shadow: 0 0 9e9Q inset #0009;
   background-color: var(--c);
   color: #fff;
+}
+
+@media (min-width: 802px) {
+  .innerWrapper {
+    flex-direction: row;
+    justify-content: unset;
+    padding: 2rem;
+    text-align: left;
+  }
+  .about > p {
+    display: block;
+  }
+  .about > a {
+    display: none;
+  }
 }

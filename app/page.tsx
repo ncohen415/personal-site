@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import styles from "@/app/styles/home.module.css"
 import { Modak, Whisper, Archivo_Black, Archivo } from "next/font/google"
 import { Linkedin, Instagram } from "react-feather"
+import Link from "next/link"
 
 const modak = Modak({ subsets: ["latin"], weight: ["400"] })
 const whisper = Whisper({ subsets: ["latin"], weight: ["400"] })
@@ -35,29 +36,40 @@ export default async function Page() {
             freegan green juice succulents literally mixtape synth polaroid
             yuccie affogato. VHS typewriter vice forage gochujang.`}
           </p>
+          <Link href="/about">{`Learn More`}</Link>
         </div>
         <div className={styles.social}>
-          <Linkedin
-            className={styles.icon}
-            size={35}
-            strokeWidth={1}
-            color="#fff"
-            style={{ margin: ".5rem" }}
-          />
-          <Instagram
-            className={styles.icon}
-            size={35}
-            strokeWidth={1}
-            color="#fff"
-            style={{ margin: ".5rem" }}
-          />
-
-          <button
+          <a
+            href="https://www.linkedin.com/in/nathan-levi-cohen-ab1669140/"
+            target="_blank"
+          >
+            <Linkedin
+              className={styles.icon}
+              size={35}
+              strokeWidth={1}
+              color="#fff"
+              style={{ margin: ".5rem" }}
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/natelcohen/?hl=en/"
+            target="_blank"
+          >
+            <Instagram
+              className={styles.icon}
+              size={35}
+              strokeWidth={1}
+              color="#fff"
+              style={{ margin: ".5rem" }}
+            />
+          </a>
+          <a
+            href={`mailto:nate.cohen415@gmail.com`}
             className={`${styles.button} ${archivo.className}`}
             style={{ margin: ".5rem" }}
           >
             Contact
-          </button>
+          </a>
         </div>
       </div>
     </div>

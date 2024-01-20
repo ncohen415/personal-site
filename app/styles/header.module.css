@@ -41,6 +41,18 @@
   opacity: 0.6;
 }
 
+.icon {
+  position: absolute;
+  top: 2.5rem;
+  right: 1rem;
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+  cursor: pointer;
+}
+.icon:hover {
+  opacity: 0.6;
+}
+
 .button {
   --c: white; /* the color*/
   --ch: white;

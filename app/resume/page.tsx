@@ -1,6 +1,10 @@
 import React from "react"
 import PageLayout from "../components/PageLayout"
 const page = () => {
-  return <div>Resume</div>
+  return (
+    <div style={{ backgroundColor: "white", height: "100vh", width: "100vw" }}>
+      resume
+    </div>
+  )
 }
 export default page
