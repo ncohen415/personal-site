@@ -1,0 +1,36 @@
+.container {
+  min-height: 3rem;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.descriptionWrapper {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.linksWrapper strong:nth-child(1) {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 17px;
+}
+
+.icon {
+  transition: 0.3s ease-in-out;
+}
+
+.icon.selected {
+  transform: rotate(90deg);
+}
