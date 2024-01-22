@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+"use client"
+import React, { useState, useEffect } from "react"
 import styles from "@/app/styles/header.module.css"
 import { Archivo_Black, Archivo } from "next/font/google"
 import Link from "next/link"
@@ -12,6 +13,11 @@ const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -36,7 +42,9 @@ const Header = () => {
             opacity: 1,
             height: "100vh",
             width: `${
-              window !== undefined && window?.innerWidth < 802
+              isClient &&
+              typeof window !== undefined &&
+              window?.innerWidth < 802
                 ? "100%"
                 : "400px"
             }`,
@@ -46,7 +54,9 @@ const Header = () => {
             opacity: 0,
             height: "100vh",
             width: `${
-              window !== undefined && window?.innerWidth < 802
+              isClient &&
+              typeof window !== undefined &&
+              window?.innerWidth < 802
                 ? "100%"
                 : "400px"
             }`,
@@ -97,22 +107,3 @@ const Header = () => {
 }
 
 export default Header
-
-{
-  /* <div className={styles.menuContainer}>
-<ul className={styles.menu}>
-  <li className={`${styles.menuItem} ${archivo.className}`}>
-    <Link href={"/work"}>Work</Link>
-  </li>
-  <li className={`${styles.menuItem} ${archivo.className}`}>
-    <Link href={"/about"}>About</Link>
-  </li>
-  <li className={`${styles.menuItem} ${archivo.className}`}>
-    <Link href={"/resume"}>Resume</Link>
-  </li>
-  <li className={`${styles.menuItem} ${archivo.className}`}>
-    <a href={`mailto:nate.cohen415@gmail.com`}>Contact</a>
-  </li>
-</ul>
-</div> */
-}
