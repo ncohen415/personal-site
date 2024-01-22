@@ -15,13 +15,10 @@ export default async function Page() {
       <div className={styles.innerWrapper}>
         <div className={styles.title}>
           <div>
-            <h1
-              className={archivoBlack.className}
-              style={{ fontSize: "2.5rem" }}
-            >
+            <h1 className={`${archivoBlack.className} ${styles.name}`}>
               Nate Cohen
             </h1>
-            <h3 style={{ fontSize: "1.15rem" }} className={archivo.className}>
+            <h3 className={`${archivo.className} ${styles.role}`}>
               Software Engineer
             </h3>
           </div>
@@ -48,7 +45,6 @@ export default async function Page() {
               size={35}
               strokeWidth={1}
               color="#fff"
-              style={{ margin: ".5rem" }}
             />
           </a>
           <a
@@ -60,7 +56,6 @@ export default async function Page() {
               size={35}
               strokeWidth={1}
               color="#fff"
-              style={{ margin: ".5rem" }}
             />
           </a>
           <a

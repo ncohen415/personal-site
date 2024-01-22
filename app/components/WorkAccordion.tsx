@@ -35,7 +35,7 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
     <div>
       {work?.map((workItem, index) => {
         return (
-          <>
+          <React.Fragment key={index}>
             <div className={styles.container}>
               {/* accordion heading */}
               <h2>
@@ -60,6 +60,7 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
               {/* accordion body */}
               <motion.div
                 animate={index === workIndex ? "open" : "closed"}
+                style={{ overflow: "hidden" }}
                 initial="closed"
                 variants={{
                   open: {
@@ -74,7 +75,12 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
                 transition={{ duration: 0.3 }}
               >
                 <a href={workItem.projectProductionLink} target="_blank">
-                  <Image src={workItem.projectLogo.url} width={150} alt="" />
+                  <Image
+                    src={workItem.projectLogo.url}
+                    width={150}
+                    height={100}
+                    alt=""
+                  />
                 </a>
                 <div className={styles.descriptionWrapper}>
                   <p>{workItem.projectDescription}</p>
@@ -94,7 +100,7 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
               </motion.div>
             </div>
             <hr style={{ marginTop: index === workIndex ? "1.25rem" : "" }} />
-          </>
+          </React.Fragment>
         )
       })}
     </div>

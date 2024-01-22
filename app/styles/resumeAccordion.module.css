@@ -1,0 +1,62 @@
+.container {
+  min-height: 3rem;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.headingLeft {
+  display: flex;
+  align-items: center;
+}
+.homepageLink {
+  margin-right: 2rem;
+}
+.companyName {
+  font-size: 22px;
+  white-space: nowrap;
+}
+.companyRole {
+  font-size: 16px;
+}
+.companyInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.headingRight {
+  display: flex;
+}
+
+.datesWrapper {
+  display: flex;
+  margin-right: 2rem;
+}
+.dates {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.accordionBody {
+  overflow: hidden;
+}
+
+.bulletsWrapper {
+  margin-top: 1rem;
+}
+.bullet {
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  transition: 0.3s ease-in-out;
+}
+
+.icon.selected {
+  transform: rotate(90deg);
+}

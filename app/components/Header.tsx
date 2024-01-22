@@ -25,7 +25,7 @@ const Header = () => {
         onClick={() => setToggleMenu(!toggleMenu)}
         className={styles.menuButtonContainer}
       >
-        <p style={{ padding: "0 16px 0 16px" }}>Menu</p>
+        <p className={styles.menu}>Menu</p>
         <Cross
           direction="left"
           size={20}
