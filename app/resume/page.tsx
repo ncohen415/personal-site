@@ -24,6 +24,7 @@ const Resume = async () => {
           Summary
         </h1>
         <p>
+          {`
           I'm baby schlitz marxism fam jianbing stumptown. Blue bottle pok pok
           stumptown small batch portland sriracha. Air plant humblebrag selvage
           meggings pitchfork cliche kogi prism typewriter neutra. Tattooed yr
@@ -32,6 +33,7 @@ const Resume = async () => {
           Kickstarter direct trade helvetica, cupping vape bicycle rights
           knausgaard kale chips bruh next level. Pok pok selvage photo booth
           bodega boys prism.
+          `}
         </p>
         <hr style={{ width: "100%", margin: "1rem 0 1rem 0" }} />
         <h1 className={archivoBlack.className} style={{ fontSize: "24px" }}>
