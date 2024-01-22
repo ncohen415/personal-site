@@ -23,14 +23,16 @@ const Work = async () => {
       <div className={styles.projectsWrapper}>
         <h1 className={archivoBlack.className}>Work</h1>
         <h3 className={archivo.className}>
-          Projects I've worked on that are in production.
+          {`Projects I've worked on that are in production.`}
         </h3>
         <hr style={{ marginTop: "1.25rem" }} />
         <WorkAccordion work={prodWork} />
       </div>
       <div className={styles.projectsWrapper}>
         <h1 className={archivoBlack.className}>Concepts</h1>
-        <h3 className={archivo.className}>Concepts that I'm fleshing out.</h3>
+        <h3
+          className={archivo.className}
+        >{`Concepts that I'm fleshing out.`}</h3>
       </div>
     </div>
   )

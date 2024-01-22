@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import styles from "@/app/styles/accordion.module.css"
 import { ChevronRight } from "react-feather"
 import { Archivo, Archivo_Black } from "next/font/google"
+import Image from "next/image"
 
 const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
@@ -73,10 +74,7 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
                 transition={{ duration: 0.3 }}
               >
                 <a href={workItem.projectProductionLink} target="_blank">
-                  <img
-                    src={workItem.projectLogo.url}
-                    style={{ width: "150px", height: "auto" }}
-                  />
+                  <Image src={workItem.projectLogo.url} width={150} alt="" />
                 </a>
                 <div className={styles.descriptionWrapper}>
                   <p>{workItem.projectDescription}</p>
