@@ -29,26 +29,14 @@ const About = () => {
         </p>
         <br />
         <p>
-          Humblebrag church-key actually crucifix mukbang, trust fund
-          intelligentsia beard tote bag sriracha shoreditch blue bottle
-          activated charcoal. Tbh narwhal flannel godard. Gluten-free food truck
-          adaptogen single-origin coffee, lumbersexual try-hard yes plz lo-fi
-          tbh irony blog. Semiotics tumeric asymmetrical tbh edison bulb
-          vibecession lomo fam, shabby chic leggings actually fingerstache
-          selvage lyft. Shoreditch poke tumblr, celiac vaporware cloud bread
-          schlitz +1 cray four loko same sus plaid.
+          Bodega boys keffiyeh readymade, man braid biodiesel meh chambray
+          mlkshk mukbang bitters listicle cliche JOMO gentrify. VHS meggings
+          actually edison bulb mukbang butcher artisan vexillologist drinking
+          vinegar ramps mlkshk echo park. Palo santo post-ironic fit banh mi
+          succulents. Typewriter skateboard bespoke, selvage portland neutral
+          milk hotel hashtag meh yuccie ennui neutra vibecession kinfolk.
         </p>
         <br />
-        <p>
-          Humblebrag church-key actually crucifix mukbang, trust fund
-          intelligentsia beard tote bag sriracha shoreditch blue bottle
-          activated charcoal. Tbh narwhal flannel godard. Gluten-free food truck
-          adaptogen single-origin coffee, lumbersexual try-hard yes plz lo-fi
-          tbh irony blog. Semiotics tumeric asymmetrical tbh edison bulb
-          vibecession lomo fam, shabby chic leggings actually fingerstache
-          selvage lyft. Shoreditch poke tumblr, celiac vaporware cloud bread
-          schlitz +1 cray four loko same sus plaid.
-        </p>
       </div>
     </div>
   )

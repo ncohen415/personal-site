@@ -17,6 +17,7 @@
 
 .projectsWrapper:nth-child(1) {
   padding-right: 0;
+  margin-bottom: 2rem;
 }
 .projectsWrapper:nth-child(2) {
   padding-left: 0;
@@ -49,6 +50,7 @@
   }
   .projectsWrapper:nth-child(1) {
     padding-right: 1rem;
+    margin-bottom: 0;
   }
   .projectsWrapper:nth-child(2) {
     padding-left: 1rem;
