@@ -10,10 +10,12 @@ import {
 } from "next/font/google"
 import { Linkedin, Instagram, ArrowDown } from "react-feather"
 import Link from "next/link"
+import Image from "next/image"
 import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
 import { TidalLogo } from "@phosphor-icons/react"
 import { stagger } from "framer-motion"
+import JennaRuben from "@/public/images/jenna-ruben.png"
 
 gsap.registerPlugin(TextPlugin)
 
@@ -64,13 +66,43 @@ export default function Page() {
       "start"
     )
   }, [])
+
+  const enterAnimation = () => {
+    const tl = gsap.timeline()
+    tl.fromTo(
+      `.${styles.underline}`,
+      {
+        width: "0%",
+        left: "0%",
+      },
+      {
+        width: "100%",
+        duration: 0.45,
+        ease: "power3.out",
+      }
+    )
+  }
+  const exitAnimation = () => {
+    const tl = gsap.timeline()
+    tl.fromTo(
+      `.${styles.underline}`,
+      {
+        width: "100%",
+        left: "0%",
+      },
+      {
+        width: "0%",
+        left: "0%",
+        duration: 0.45,
+        immediateRender: false,
+        ease: "power3.out",
+      }
+    )
+  }
   return (
     <div className={styles.container}>
-      <div
-        style={{ flexDirection: "row", justifyContent: "space-between" }}
-        className={styles.innerWrapperTop}
-      >
-        <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className={styles.innerWrapperTop}>
+        <div className={styles.roleWrapper}>
           <h1 className={`${oswald.className} ${styles.topRole}`}>
             <span className={styles.roleChar}>S</span>
             <span className={styles.roleChar}>O</span>
@@ -93,7 +125,23 @@ export default function Page() {
             <span className={styles.roleChar}>R</span>
           </h1>
         </div>
-        <div className={styles.image} />
+        <div
+          style={{
+            display: "flex",
+            flex: "0 1 35%",
+            justifyContent: "flex-end",
+          }}
+        >
+          <div className={styles.imageWrapper}>
+            <Image
+              className={styles.image}
+              alt=""
+              src={JennaRuben}
+              width={400}
+              height={undefined}
+            />
+          </div>
+        </div>
       </div>
       <div className={styles.wrapperBottom}>
         <div className={styles.innerWrapperBottom}>
@@ -107,8 +155,17 @@ export default function Page() {
                 {`I LOVE ART, CREATING, AND MINIMALIST DESIGN.`}
               </span>
               <br />
-              <span style={{ color: "red" }} className={styles.blurbPiece}>
-                {`LET ME HELP BRING YOUR IDEAS TO LIFE.`}
+
+              <span
+                onMouseEnter={() => enterAnimation()}
+                onMouseLeave={() => exitAnimation()}
+                style={{ color: "red" }}
+                className={styles.blurbPiece}
+              >
+                <a
+                  href={`mailto:nate.cohen415@gmail.com`}
+                >{`I WANT TO HELP BRING YOUR IDEAS TO LIFE.`}</a>
+                <span className={styles.underline} />
               </span>
             </h3>
           </div>

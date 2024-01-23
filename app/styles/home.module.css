@@ -8,23 +8,54 @@
 .innerWrapperTop {
   display: flex;
   flex-direction: column;
-  flex: 0 1 60%;
+  margin-top: 70px;
+  flex: 0 1 65%;
   align-items: center;
+  text-align: center;
+}
+.roleWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .topRole {
-  font-size: 12vw;
+  font-size: 80px;
   font-weight: 700;
-  letter-spacing: 10px;
-  line-height: max(13vw, 15vw);
+  letter-spacing: 0;
+  line-height: 112px;
   overflow: hidden;
   margin-top: -70px;
 }
-
+.imageWrapper {
+  width: 75%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  border-radius: 1000px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  position: relative;
+  min-width: 300px;
+  min-height: 300px;
+}
 .image {
-  width: 25vw;
-  height: 25vw;
-  border-radius: 5000px;
+  position: absolute;
+  bottom: -50px;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.underline {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: calc(1px + 0.2vw);
   background-color: red;
 }
 
@@ -36,16 +67,19 @@
 .innerWrapperBottom {
   display: flex;
   flex: 0 1 100%;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
 }
 .blurbWrapper {
   display: flex;
   flex: 0 1 50%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
 }
 .blurb {
-  font-size: 1.35vw;
+  font-size: 16px;
   font-weight: 500;
 }
 .blurbPiece {
@@ -63,15 +97,15 @@
   display: flex;
   flex-direction: column;
   flex: 0 1 50%;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .name {
-  font-size: 10vw;
+  font-size: 80px;
   font-weight: 700;
-  letter-spacing: 10px;
-  line-height: max(10vw, 10vw);
-  text-align: right;
+  letter-spacing: 0;
+  line-height: 80px;
+  text-align: center;
   overflow: hidden;
   margin-top: -37px;
 }
@@ -117,5 +151,30 @@
   color: #fff;
 }
 
-@media (min-width: 802px) {
+@media (min-width: 913px) {
+  .innerWrapperTop {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: unset;
+    text-align: left;
+  }
+  .innerWrapperBottom {
+    flex-direction: row;
+    align-items: unset;
+    text-align: left;
+  }
+  .topRole {
+    font-size: 12vw;
+    letter-spacing: 10px;
+    line-height: max(13vw, 15vw);
+  }
+  .name {
+    font-size: 12vw;
+    letter-spacing: 10px;
+    line-height: max(9.5vw, 11.5vw);
+    text-align: right;
+  }
+  .blurb {
+    font-size: 1.35vw;
+  }
 }
