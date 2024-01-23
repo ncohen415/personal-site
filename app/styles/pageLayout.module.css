@@ -1,4 +1,13 @@
-.pageLayoutContainer {
-  min-height: 100vh;
-  height: fit-content;
+.mainWrapper {
+  height: 100vh;
+  overflow: scroll;
+}
+.mainWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 913px) {
+  .mainWrapper {
+    height: calc(100vh - 100px);
+  }
 }

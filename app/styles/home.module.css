@@ -1,8 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: inherit;
+  height: fit-content;
   padding: 0 2rem 2rem 2rem;
+  background-color: white;
+  padding-top: 100px;
 }
 
 .innerWrapperTop {
@@ -11,7 +13,6 @@
   margin-top: 70px;
   flex: 0 1 65%;
   align-items: center;
-  text-align: center;
 }
 .roleWrapper {
   display: flex;
@@ -19,10 +20,10 @@
 }
 
 .topRole {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 112px;
+  line-height: 96px;
   overflow: hidden;
   margin-top: -70px;
 }
@@ -69,7 +70,6 @@
   flex: 0 1 100%;
   flex-direction: column-reverse;
   align-items: center;
-  text-align: center;
 }
 .blurbWrapper {
   display: flex;
@@ -81,9 +81,11 @@
 .blurb {
   font-size: 16px;
   font-weight: 500;
+  text-align: center;
 }
 .blurbPiece {
   display: inline-block;
+  margin-bottom: 1rem;
 }
 
 .iconWrapper {
@@ -98,6 +100,8 @@
   flex-direction: column;
   flex: 0 1 50%;
   justify-content: flex-start;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .name {
@@ -151,7 +155,24 @@
   color: #fff;
 }
 
+@media (min-width: 500px) {
+  .container {
+    height: inherit;
+  }
+  .topRole {
+    font-size: 80px;
+    line-height: 112px;
+  }
+  .nameWrapper {
+    margin-top: unset;
+    margin-bottom: unset;
+  }
+}
+
 @media (min-width: 913px) {
+  .container {
+    padding-top: 0;
+  }
   .innerWrapperTop {
     flex-direction: row;
     justify-content: space-between;
@@ -176,5 +197,6 @@
   }
   .blurb {
     font-size: 1.35vw;
+    text-align: left;
   }
 }

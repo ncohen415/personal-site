@@ -69,21 +69,11 @@ const Header = () => {
   return (
     <div>
       <div className={`${styles.container}`}>
-        <ul
-          style={{
-            display: "flex",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          <div style={{ display: "flex", flex: "0 1 25%" }}>
+        <ul className={styles.navContainer}>
+          <div className={styles.brandContainer}>
             <Link
               className={styles.animationContainer}
-              style={{
-                overflow: "hidden",
-                position: "relative",
-                height: "45px",
-              }}
+              style={{ height: "45px" }}
               href="/"
             >
               <div
@@ -101,14 +91,8 @@ const Header = () => {
             </Link>
           </div>
 
-          <div style={{ display: "flex", flex: "0 1 25%" }}>
-            <a
-              className={styles.animationContainer}
-              style={{
-                overflow: "hidden",
-                position: "relative",
-              }}
-            >
+          <div className={styles.basedContainer}>
+            <a className={styles.animationContainer}>
               <div
                 onMouseEnter={() =>
                   enterHover(styles.basedInitial, styles.basedHover)
@@ -124,13 +108,9 @@ const Header = () => {
             </a>
           </div>
 
-          <div style={{ display: "flex", flex: "0 1 25%" }}>
+          <div className={styles.contactContainer}>
             <a
               className={styles.animationContainer}
-              style={{
-                overflow: "hidden",
-                position: "relative",
-              }}
               href={`mailto:nate.cohen415@gmail.com`}
             >
               <div
@@ -154,8 +134,6 @@ const Header = () => {
             <a
               className={styles.animationContainer}
               style={{
-                overflow: "hidden",
-                position: "relative",
                 height: "25px",
               }}
               onClick={() => setToggleMenu(!toggleMenu)}

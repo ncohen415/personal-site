@@ -38,9 +38,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
     <main style={{ backgroundColor: "white" }}>
       <div style={{ minHeight: "100vh" }}>
         <Header />
-        <div style={{ height: "calc(100vh - 100px)", overflow: "scroll" }}>
-          {children}
-        </div>
+        <div className={styles.mainWrapper}>{children}</div>
       </div>
     </main>
   )

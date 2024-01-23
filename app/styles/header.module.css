@@ -2,6 +2,30 @@
   height: 100px;
   width: 100vw;
   padding: 0 2rem 0 2rem;
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.brandContainer {
+  display: flex;
+  flex: 0 1 50%;
+}
+
+.basedContainer {
+  display: none;
+  flex: 0 1 25%;
+}
+
+.contactContainer {
+  display: flex;
+  flex: 0 1 25%;
 }
 
 .menuButtonContainer {
@@ -124,4 +148,19 @@
   box-shadow: 0 0 9e9Q inset #0009;
   background-color: var(--c);
   color: #fff;
+}
+
+@media (min-width: 731px) {
+  .basedContainer {
+    display: flex;
+  }
+  .brandContainer {
+    flex: 0 1 25%;
+  }
+}
+@media (min-width: 913px) {
+  .container {
+    position: relative;
+    z-index: 1;
+  }
 }
