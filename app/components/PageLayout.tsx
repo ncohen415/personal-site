@@ -35,19 +35,12 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   }, [switchImages])
 
   return (
-    <main
-      style={{
-        backgroundImage: `url(${images && images[imageIndex]?.image.url})`,
-        backgroundSize: `cover`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "top center",
-        transition: "background-image 1s ease-in-out",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <main>
       <div style={{ minHeight: "100vh" }}>
         <Header />
-        <div>{children}</div>
+        <div style={{ height: "calc(100vh - 100px)", overflow: "scroll" }}>
+          {children}
+        </div>
       </div>
     </main>
   )
