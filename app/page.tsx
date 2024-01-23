@@ -12,12 +12,11 @@ import { Linkedin, Instagram, ArrowDown } from "react-feather"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
+import { TidalLogo } from "@phosphor-icons/react"
+import { stagger } from "framer-motion"
 
 gsap.registerPlugin(TextPlugin)
-const modak = Modak({ subsets: ["latin"], weight: ["400"] })
-const whisper = Whisper({ subsets: ["latin"], weight: ["400"] })
-const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
-const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
+
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "200", "300", "500", "600", "700"],
@@ -26,153 +25,115 @@ const oswald = Oswald({
 export default function Page() {
   useEffect(() => {
     const tl = gsap.timeline()
+    tl.add("start")
+
+    tl.fromTo(
+      `.${styles.container}`,
+      { y: "100%" },
+      { y: "0", duration: 1.5, ease: "power3.out" },
+      "start"
+    )
+    tl.fromTo(
+      `.${styles.roleChar}`,
+      { y: "100%" },
+      { y: "0", duration: 1.5, ease: "power3.inOut", stagger: 0.05 },
+      "start"
+    )
+    tl.fromTo(
+      `.${styles.nameChar}`,
+      { y: "100%" },
+      { y: "0", duration: 1.5, ease: "power3.inOut", stagger: 0.05 },
+      "start"
+    )
+    tl.fromTo(
+      `.${styles.image}`,
+      { x: "150%" },
+      { x: "0", delay: 1.5 },
+      "start"
+    )
+    tl.fromTo(
+      `.${styles.blurbPiece}`,
+      { y: "1000%" },
+      {
+        y: "0",
+        duration: 1.5,
+        delay: 1,
+        ease: "power3.inOut",
+        stagger: 0.05,
+      },
+      "start"
+    )
   }, [])
   return (
-    <div
-      style={{
-        height: "inherit",
-        display: "flex",
-        flexDirection: "column",
-        padding: "0 2rem 2rem 2rem",
-      }}
-    >
+    <div className={styles.container}>
       <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: "0 1 60%",
-        }}
+        style={{ flexDirection: "row", justifyContent: "space-between" }}
+        className={styles.innerWrapperTop}
       >
-        <h1
-          style={{
-            fontSize: "150px",
-            fontWeight: "700",
-            letterSpacing: "5px",
-            lineHeight: "130px",
-          }}
-          className={oswald.className}
-        >
-          SOFTWARE <br /> ENGINEER
-        </h1>
-        <div
-          style={{
-            width: "500px",
-            height: "200px",
-            backgroundColor: "red",
-            marginTop: "2rem",
-          }}
-        />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h1 className={`${oswald.className} ${styles.topRole}`}>
+            <span className={styles.roleChar}>S</span>
+            <span className={styles.roleChar}>O</span>
+            <span className={styles.roleChar}>F</span>
+            <span className={styles.roleChar}>T</span>
+            <span className={styles.roleChar}>W</span>
+            <span className={styles.roleChar}>A</span>
+            <span className={styles.roleChar}>R</span>
+            <span className={styles.roleChar}>E</span>
+          </h1>
+          <br />
+          <h1 className={`${oswald.className} ${styles.topRole}`}>
+            <span className={styles.roleChar}>E</span>
+            <span className={styles.roleChar}>N</span>
+            <span className={styles.roleChar}>G</span>
+            <span className={styles.roleChar}>I</span>
+            <span className={styles.roleChar}>N</span>
+            <span className={styles.roleChar}>E</span>
+            <span className={styles.roleChar}>E</span>
+            <span className={styles.roleChar}>R</span>
+          </h1>
+        </div>
+        <div className={styles.image} />
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: "0 1 40%",
-        }}
-      >
-        <div style={{ display: "flex", flex: "0 1 100%" }}>
-          <div
-            style={{
-              display: "flex",
-              flex: "0 1 20%",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <ArrowDown size={200} />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: "0 1 40%",
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <h3 style={{ fontSize: "30px", fontWeight: "700" }}>
-              I want to help bring <br /> your ideas to life.
+      <div className={styles.wrapperBottom}>
+        <div className={styles.innerWrapperBottom}>
+          <div className={styles.blurbWrapper}>
+            <h3 className={styles.blurb}>
+              <span className={styles.blurbPiece}>
+                I'M A SELF-TAUGHT FULL STACK ENGINEER BASED IN BROOKLYN.
+              </span>
+              <br />
+              <span className={styles.blurbPiece}>
+                I LOVE ART, CREATING, AND MINIMALIST DESIGN.
+              </span>
+              <br />
+              <span style={{ color: "red" }} className={styles.blurbPiece}>
+                LET ME HELP BRING YOUR IDEAS TO LIFE.
+              </span>
             </h3>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flex: "0 1 40%",
-              justifyContent: "flex-end",
-            }}
-          >
+          <div className={styles.nameWrapper}>
+            <h1 className={`${oswald.className} ${styles.name}`}>
+              <span className={styles.nameChar}>N</span>
+              <span className={styles.nameChar}>A</span>
+              <span className={styles.nameChar}>T</span>
+              <span className={styles.nameChar}>E</span>
+            </h1>
+            <br />
             <h1
-              style={{
-                fontSize: "150px",
-                fontWeight: "700",
-                letterSpacing: "5px",
-                lineHeight: "130px",
-                textAlign: "right",
-              }}
-              className={oswald.className}
+              style={{ marginRight: "-.5vw" }}
+              className={`${oswald.className} ${styles.name}`}
             >
-              NATE <br /> COHEN
+              <span className={styles.nameChar}>C</span>
+              <span className={styles.nameChar}>O</span>
+              <span className={styles.nameChar}>H</span>
+              <span className={styles.nameChar}>E</span>
+              <span className={styles.nameChar}>N</span>
             </h1>
           </div>
         </div>
       </div>
     </div>
-    // <div className={styles.container}>
-    //   <div className={styles.innerWrapper}>
-    //     <div className={styles.title}>
-    //       <div>
-    //         <h1 className={`${archivoBlack.className} ${styles.name}`}>
-    //           Nate Cohen
-    //         </h1>
-    //         <h3 className={`${archivo.className} ${styles.role}`}>
-    //           Software Engineer
-    //         </h3>
-    //       </div>
-    //     </div>
-    //     <div className={styles.about}>
-    //       <p>
-    //         {`I'm baby kinfolk deep v coloring book tofu tumeric seitan.
-    //         Gluten-free activated charcoal kickstarter craft beer godard small
-    //         batch. Hammock health goth marfa, cliche godard helvetica neutra
-    //         succulents. Jianbing wayfarers DSA, gastropub intelligentsia
-    //         taxidermy venmo. Cornhole farm-to-table post-ironic, palo santo
-    //         freegan green juice succulents literally mixtape synth polaroid
-    //         yuccie affogato. VHS typewriter vice forage gochujang.`}
-    //       </p>
-    //       <Link href="/about">{`Learn More`}</Link>
-    //     </div>
-    //     <div className={styles.social}>
-    //       <a
-    //         href="https://www.linkedin.com/in/nathan-levi-cohen-ab1669140/"
-    //         target="_blank"
-    //       >
-    //         <Linkedin
-    //           className={styles.icon}
-    //           size={35}
-    //           strokeWidth={1}
-    //           color="#fff"
-    //         />
-    //       </a>
-    //       <a
-    //         href="https://www.instagram.com/natelcohen/?hl=en/"
-    //         target="_blank"
-    //       >
-    //         <Instagram
-    //           className={styles.icon}
-    //           size={35}
-    //           strokeWidth={1}
-    //           color="#fff"
-    //         />
-    //       </a>
-    //       <a
-    //         href={`mailto:nate.cohen415@gmail.com`}
-    //         className={`${styles.button} ${archivo.className}`}
-    //         style={{ margin: ".5rem" }}
-    //       >
-    //         Contact
-    //       </a>
-    //     </div>
-    //   </div>
-    // </div>
   )
 }

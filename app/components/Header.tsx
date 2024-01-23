@@ -39,12 +39,12 @@ const Header = () => {
     tl.fromTo(
       `.${styles.container}`,
       { y: "-100%" },
-      { y: "0", duration: 2, delay: 0.5, ease: "power3.inOut" }
+      { y: "0", duration: 1.5, delay: 0.5, ease: "power3.inOut" }
     )
     tl.fromTo(
       `.${styles.menu}`,
       { opacity: 0 },
-      { opacity: 1, duration: 0.5, delay: 0.15, ease: "power3.inOut" }
+      { opacity: 1, duration: 0.5, ease: "power3.inOut" }
     )
   }, [])
 

@@ -35,7 +35,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ images, children }) => {
   }, [switchImages])
 
   return (
-    <main>
+    <main style={{ backgroundColor: "white" }}>
       <div style={{ minHeight: "100vh" }}>
         <Header />
         <div style={{ height: "calc(100vh - 100px)", overflow: "scroll" }}>

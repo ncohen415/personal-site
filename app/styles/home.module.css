@@ -1,60 +1,87 @@
-.innerWrapper {
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
+.container {
   display: flex;
-  background-color: rgba(105, 105, 105, 0.6);
-  min-height: 250px;
-  padding: 1rem;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
+  height: inherit;
+  padding: 0 2rem 2rem 2rem;
 }
 
-.title {
+.innerWrapperTop {
   display: flex;
   flex-direction: column;
-  flex: 0 1 25%;
-  color: white;
-  justify-content: center;
+  flex: 0 1 60%;
   align-items: center;
-  padding: 0 0.5rem 0 0.5rem;
 }
-.name {
-  font-size: 2.5rem;
+
+.topRole {
+  font-size: 12vw;
+  font-weight: 700;
+  letter-spacing: 10px;
+  line-height: max(13vw, 15vw);
+  overflow: hidden;
+  margin-top: -70px;
 }
-.role {
-  font-size: 1.15rem;
+
+.image {
+  width: 25vw;
+  height: 25vw;
+  border-radius: 5000px;
+  background-color: red;
 }
-.social {
+
+.wrapperBottom {
   display: flex;
-  flex: 0 1 25%;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  flex: 0 1 40%;
 }
-.about {
+.innerWrapperBottom {
+  display: flex;
+  flex: 0 1 100%;
+}
+.blurbWrapper {
   display: flex;
   flex: 0 1 50%;
-  color: white;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 0 1rem 0 1rem;
+  overflow: hidden;
+}
+.blurb {
+  font-size: 1.35vw;
+  font-weight: 500;
+}
+.blurbPiece {
+  display: inline-block;
 }
 
-.about > p {
-  display: none;
+.iconWrapper {
+  display: flex;
+  flex: 0 1 20%;
+  justify-content: flex-start;
+  align-items: center;
 }
-.about > a {
-  display: block;
+
+.nameWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 50%;
+  justify-content: flex-end;
 }
-.icon {
-  margin: 0.5rem;
-  transition: 0.3s ease-in-out;
-  opacity: 1;
-  cursor: pointer;
+
+.name {
+  font-size: 10vw;
+  font-weight: 700;
+  letter-spacing: 10px;
+  line-height: max(10vw, 10vw);
+  text-align: right;
+  overflow: hidden;
+  margin-top: -37px;
 }
-.icon:hover {
-  opacity: 0.6;
+
+.roleChar {
+  display: inline-block;
+}
+
+.nameChar {
+  display: inline-block;
 }
 
 .button {
@@ -91,16 +118,4 @@
 }
 
 @media (min-width: 802px) {
-  .innerWrapper {
-    flex-direction: row;
-    justify-content: unset;
-    padding: 2rem;
-    text-align: left;
-  }
-  .about > p {
-    display: block;
-  }
-  .about > a {
-    display: none;
-  }
 }
