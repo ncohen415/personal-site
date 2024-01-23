@@ -1,12 +1,16 @@
 import React from "react"
 import styles from "@/app/styles/work.module.css"
-import { Archivo_Black, Archivo } from "next/font/google"
+import { Archivo_Black, Archivo, Oswald } from "next/font/google"
 import { motion } from "framer-motion"
 import { getWork } from "../actions"
 import WorkAccordion from "@/app/components/WorkAccordion"
 
 const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "200", "300", "500", "600", "700"],
+})
 
 const Work = async () => {
   const data = await getWork()
@@ -21,7 +25,9 @@ const Work = async () => {
   return (
     <div className={styles.container}>
       <div className={styles.projectsWrapper}>
-        <h1 className={archivoBlack.className}>Work</h1>
+        <h1 style={{ fontWeight: "500" }} className={oswald.className}>
+          Work
+        </h1>
         <h3 className={archivo.className}>
           {`Projects I've worked on that are in production.`}
         </h3>
@@ -29,7 +35,7 @@ const Work = async () => {
         <WorkAccordion work={prodWork} />
       </div>
       <div className={styles.projectsWrapper}>
-        <h1 className={archivoBlack.className}>Concepts</h1>
+        <h1 className={oswald.className}>Concepts</h1>
         <h3
           className={archivo.className}
         >{`Concepts that I'm fleshing out.`}</h3>

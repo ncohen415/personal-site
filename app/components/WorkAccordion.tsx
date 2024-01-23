@@ -3,12 +3,14 @@ import React, { useState } from "react"
 import { motion } from "framer-motion"
 import styles from "@/app/styles/accordion.module.css"
 import { ChevronRight } from "react-feather"
-import { Archivo, Archivo_Black } from "next/font/google"
+import { Archivo, Archivo_Black, Oswald } from "next/font/google"
 import Image from "next/image"
 
-const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
-
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "200", "300", "500", "600", "700"],
+})
 interface WorkItem {
   projectTitle: string
   projectDescription: string
@@ -44,7 +46,7 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
                   type="button"
                   className={styles.heading}
                 >
-                  <span className={`${styles.title} ${archivo.className}`}>
+                  <span className={`${styles.title}`}>
                     {workItem.projectTitle}
                   </span>
                   <ChevronRight
@@ -87,12 +89,20 @@ const WorkAccordion: React.FC<WorkAccordionProps> = ({ work }) => {
                 </div>
                 <div className={styles.linksWrapper}>
                   <strong>
-                    <a href={workItem.projectHomepageLink} target="_blank">
+                    <a
+                      className={oswald.className}
+                      href={workItem.projectHomepageLink}
+                      target="_blank"
+                    >
                       Homepage
                     </a>
                   </strong>
                   <strong>
-                    <a href={workItem.projectProductionLink} target="_blank">
+                    <a
+                      className={oswald.className}
+                      href={workItem.projectProductionLink}
+                      target="_blank"
+                    >
                       Production
                     </a>
                   </strong>
