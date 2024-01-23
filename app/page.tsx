@@ -15,7 +15,7 @@ import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
 import { TidalLogo } from "@phosphor-icons/react"
 import { stagger } from "framer-motion"
-import JennaRuben from "@/public/images/jenna-ruben.png"
+import Headshot from "@/public/images/headshot-removebg-preview.png"
 
 gsap.registerPlugin(TextPlugin)
 
@@ -136,7 +136,7 @@ export default function Page() {
             <Image
               className={styles.image}
               alt=""
-              src={JennaRuben}
+              src={Headshot}
               width={400}
               height={undefined}
             />
