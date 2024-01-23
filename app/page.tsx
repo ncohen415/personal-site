@@ -100,15 +100,15 @@ export default function Page() {
           <div className={styles.blurbWrapper}>
             <h3 className={styles.blurb}>
               <span className={styles.blurbPiece}>
-                I'M A SELF-TAUGHT FULL STACK ENGINEER BASED IN BROOKLYN.
+                {`I'M A SELF-TAUGHT FULL STACK ENGINEER BASED IN BROOKLYN.`}
               </span>
               <br />
               <span className={styles.blurbPiece}>
-                I LOVE ART, CREATING, AND MINIMALIST DESIGN.
+                {`I LOVE ART, CREATING, AND MINIMALIST DESIGN.`}
               </span>
               <br />
               <span style={{ color: "red" }} className={styles.blurbPiece}>
-                LET ME HELP BRING YOUR IDEAS TO LIFE.
+                {`LET ME HELP BRING YOUR IDEAS TO LIFE.`}
               </span>
             </h3>
           </div>
