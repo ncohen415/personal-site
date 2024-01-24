@@ -30,24 +30,3 @@ export default async function RootLayout({
     </html>
   )
 }
-
-{
-  /* <script src="https://unpkg.com/split-type"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-
-<script>
-let typeSplit = new SplitType('[animate]', {
-  types: 'lines, words, chars',
-  tagName: 'span'
-})
-
-gsap.from('[animate] .char', {
-  y: '100%',
-  opacity: 1,
-  duration: 0.1,
-  ease: 'power3.out',
-  stagger: 0.1,
-  
-})
-</script> */
-}
