@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styles from "@/app/styles/header.module.css"
 import {
   Archivo_Black,
@@ -18,20 +18,24 @@ import { Cross } from "hamburger-react"
 import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
 
-gsap.registerPlugin(TextPlugin)
-
-const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
-const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
-const yeseva_one = Yeseva_One({ subsets: ["latin"], weight: ["400"] })
-const italiana = Italiana({ subsets: ["latin"], weight: ["400"] })
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "200", "300", "500", "600", "700"],
 })
 
-const Header = () => {
+interface HeaderProps {
+  timeline: object
+}
+
+const Header: React.FC<HeaderProps> = ({ timeline }) => {
   const [toggleMenu, setToggleMenu] = useState(false)
   const [isClient, setIsClient] = useState(false)
+
+  const containerRef = useRef(null)
+
+  const menuRef = useRef(null)
+
+  useEffect(() => {}, [timeline])
 
   useEffect(() => {
     setIsClient(true)
@@ -68,7 +72,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className={`${styles.container}`}>
+      <div className={`${styles.container}`} ref={containerRef}>
         <ul className={styles.navContainer}>
           <div className={styles.brandContainer}>
             <Link
@@ -143,8 +147,12 @@ const Header = () => {
                 onMouseLeave={() => exitHover(styles.menu, styles.menu)}
                 className={`${styles.animationItemsWrapper}`}
               >
-                <div className={styles.menu}>Menu</div>
-                <div className={styles.menu}>Menu</div>
+                <div ref={menuRef} className={styles.menu}>
+                  Menu
+                </div>
+                <div ref={menuRef} className={styles.menu}>
+                  Menu
+                </div>
               </div>
             </a>
           </div>

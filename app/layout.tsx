@@ -20,12 +20,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const data = await getBackgroundImages()
-  const images = data.data.allImages
   return (
     <html lang="en">
       <body className={`${montserrat.className} bg-white`}>
-        <PageLayout images={images}>{children}</PageLayout>
+        <PageLayout>{children}</PageLayout>
       </body>
     </html>
   )

@@ -31,31 +31,31 @@ export default function Page() {
 
     tl.fromTo(
       `.${styles.container}`,
-      { y: "100%" },
+      { y: "100vh" },
       { y: "0", duration: 1.5, ease: "power3.out" },
       "start"
     )
     tl.fromTo(
       `.${styles.roleChar}`,
-      { y: "200%" },
+      { y: "100vh" },
       { y: "0", duration: 1.5, ease: "power3.inOut", stagger: 0.05 },
       "start"
     )
     tl.fromTo(
       `.${styles.nameChar}`,
-      { y: "100%" },
+      { y: "100vh" },
       { y: "0", duration: 1.5, ease: "power3.inOut", stagger: 0.05 },
       "start"
     )
     tl.fromTo(
       `.${styles.image}`,
-      { x: "150%" },
+      { x: "100vw" },
       { x: "0", delay: 1.5 },
       "start"
     )
     tl.fromTo(
       `.${styles.blurbPiece}`,
-      { y: "1000%" },
+      { y: "50vh" },
       {
         y: "0",
         duration: 1.5,
