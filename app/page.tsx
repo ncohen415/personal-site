@@ -37,7 +37,7 @@ export default function Page() {
     )
     tl.fromTo(
       `.${styles.roleChar}`,
-      { y: "100%" },
+      { y: "200%" },
       { y: "0", duration: 1.5, ease: "power3.inOut", stagger: 0.05 },
       "start"
     )
