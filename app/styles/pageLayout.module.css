@@ -1,6 +1,5 @@
 .mainWrapper {
   height: 100vh;
-  overflow: scroll;
 }
 .mainWrapper::-webkit-scrollbar {
   display: none;
