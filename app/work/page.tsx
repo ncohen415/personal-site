@@ -4,6 +4,8 @@ import { Archivo_Black, Archivo, Oswald } from "next/font/google"
 import { motion } from "framer-motion"
 import { getWork } from "../actions"
 import WorkAccordion from "@/app/components/WorkAccordion"
+import Header from "@/app/components/Header"
+import WorkPage from "@/app/components/PageComponents/WorkPage"
 
 const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
@@ -22,25 +24,6 @@ const Work = async () => {
   )
 
   const work = data.data.allWorkItems
-  return (
-    <div className={styles.container}>
-      <div className={styles.projectsWrapper}>
-        <h1 style={{ fontWeight: "500" }} className={oswald.className}>
-          Work
-        </h1>
-        <h3 className={archivo.className}>
-          {`Projects I've worked on that are in production.`}
-        </h3>
-        <hr style={{ marginTop: "1.25rem" }} />
-        <WorkAccordion work={prodWork} />
-      </div>
-      <div className={styles.projectsWrapper}>
-        <h1 className={oswald.className}>Concepts</h1>
-        <h3
-          className={archivo.className}
-        >{`Concepts that I'm fleshing out.`}</h3>
-      </div>
-    </div>
-  )
+  return <WorkPage prodWork={prodWork} conceptWork={conceptWork} />
 }
 export default Work

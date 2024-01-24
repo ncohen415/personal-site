@@ -38,7 +38,10 @@ const Resume = async () => {
         <h1 className={archivoBlack.className} style={{ fontSize: "24px" }}>
           Experience
         </h1>
-        <ResumeAccordion resumeItems={resumeItems} />
+        <ResumeAccordion
+          experience={`.${styles.experience}`}
+          resumeItems={resumeItems}
+        />
       </div>
     </div>
   )

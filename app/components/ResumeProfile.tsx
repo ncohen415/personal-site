@@ -1,88 +1,59 @@
 "use client"
-import React from "react"
-import { Archivo_Black, Archivo } from "next/font/google"
+import React, { useLayoutEffect } from "react"
+import { Oswald } from "next/font/google"
 import styles from "@/app/styles/resumeProfile.module.css"
+import { gsap } from "gsap"
 
-const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
-const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "200", "300", "500", "600", "700"],
+})
 const ResumeProfile = () => {
+  useLayoutEffect(() => {
+    const tl = gsap.timeline()
+    gsap.defaults({
+      duration: 1.5,
+    })
+    tl.add("start")
+    tl.fromTo(
+      `.${styles.profileContainer}`,
+      { y: "-100vh" },
+      { y: "0", duration: 0.75, ease: "expo.out" },
+      "start"
+    )
+  }, [])
+
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+    <div className={styles.profileContainer}>
       <div
         style={{
-          width: "200px",
-          height: "200px",
-          borderRadius: "5000px",
-          backgroundColor: "red",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
+          width: "100%",
         }}
-      />
-      <h1
-        className={archivoBlack.className}
-        style={{ fontSize: "30px", marginTop: "2rem" }}
       >
-        Nate Cohen
-      </h1>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        Full Stack Engineer
-      </h3>
-      <a
-        href={`mailto:nate.cohen415@gmail.com`}
-        className={`${styles.button} ${archivo.className}`}
-        style={{ marginTop: "1rem" }}
-      >
-        Contact
-      </a>
+        <div className={styles.image} />
+        <h1 className={`${styles.name} ${oswald.className}`}>Nate Cohen</h1>
+        <h3 className={styles.role}>Full Stack Engineer</h3>
+        <a
+          href={`mailto:nate.cohen415@gmail.com`}
+          className={`${styles.button}`}
+          style={{ marginTop: "1rem" }}
+        >
+          Contact
+        </a>
+      </div>
       <hr style={{ width: "100%", margin: "2rem 0 2rem 0" }} />
-      <h1 className={archivoBlack.className} style={{ fontSize: "30px" }}>
-        Toolkit
-      </h1>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        React/Typescript
-      </h3>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        React Native
-      </h3>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        Django
-      </h3>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        NextJS
-      </h3>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        Gatsby
-      </h3>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        Wordpress
-      </h3>
-      <h3
-        className={archivo.className}
-        style={{ fontSize: "18px", marginTop: ".5rem" }}
-      >
-        Shopify
-      </h3>
+      <h1 className={styles.toolkit}>Toolkit</h1>
+      <h3 className={styles.tool}>React/Typescript</h3>
+      <h3 className={styles.tool}>React Native</h3>
+      <h3 className={styles.tool}>Django</h3>
+      <h3 className={styles.tool}>NextJS</h3>
+      <h3 className={styles.tool}>Gatsby</h3>
+      <h3 className={styles.tool}>Wordpress</h3>
+      <h3 className={styles.tool}>Shopify</h3>
     </div>
   )
 }

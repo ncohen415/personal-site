@@ -4,7 +4,7 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
-  padding-top: calc(80px + 2rem);
+  padding-top: 100px;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 2rem;
@@ -27,14 +27,20 @@
   overflow: scroll;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 912px) {
   .container {
     flex-direction: row;
     padding-right: 2rem;
     padding-left: 2rem;
-    padding-top: calc(80px + 2rem);
+    padding-top: 2rem;
   }
   .divider {
     display: none;
+  }
+  .experience {
+    margin-left: 1rem;
+  }
+  .profile {
+    margin-right: 1rem;
   }
 }

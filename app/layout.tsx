@@ -4,7 +4,13 @@ import "./globals.css"
 import Header from "@/app/components/Header"
 import PageLayout from "@/app/components/PageLayout"
 import { getBackgroundImages } from "@/app/actions"
+import styles from "@/app/styles/pageLayout.module.css"
 
+//styles for classnames
+import homepageStyles from "@/app/styles/home.module.css"
+import workStyles from "@/app/styles/work.module.css"
+import aboutStyles from "@/app/styles/about.module.css"
+import resumeStyles from "@/app/styles/resume.module.css"
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -23,7 +29,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} bg-white`}>
-        <PageLayout>{children}</PageLayout>
+        <Header
+          homepageContainer={`.${homepageStyles.container}`}
+          workContainer={`.${workStyles.container}`}
+          resumeContainer={`.${resumeStyles.container}`}
+          aboutContainer={`.${aboutStyles.innerWrapper}`}
+        />
+        <div className={styles.mainWrapper}>{children}</div>
+        {/* <PageLayout>{children}</PageLayout> */}
       </body>
     </html>
   )

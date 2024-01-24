@@ -1,10 +1,11 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import { Archivo, Archivo_Black } from "next/font/google"
 import styles from "@/app/styles/resumeAccordion.module.css"
 import { ChevronRight } from "react-feather"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import gsap from "gsap"
 
 const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
@@ -21,10 +22,29 @@ interface ResumeItem {
 
 interface ResumeAccordionProps {
   resumeItems: Array<ResumeItem>
+  experience: string
 }
 
-const ResumeAccordion: React.FC<ResumeAccordionProps> = ({ resumeItems }) => {
+const ResumeAccordion: React.FC<ResumeAccordionProps> = ({
+  resumeItems,
+  experience,
+}) => {
   const [resumeIndex, setResumeIndex] = useState<number | null>()
+
+  useLayoutEffect(() => {
+    const tl = gsap.timeline()
+    gsap.defaults({
+      duration: 1.5,
+    })
+    tl.add("start")
+    tl.fromTo(
+      experience,
+      { y: "100vh" },
+      { y: "0", duration: 0.75, ease: "expo.out" },
+      "start"
+    )
+  }, [])
+
   const handleResumeIndex = (index: number) => {
     if (index === resumeIndex) {
       setResumeIndex(null)
@@ -34,7 +54,7 @@ const ResumeAccordion: React.FC<ResumeAccordionProps> = ({ resumeItems }) => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       {resumeItems?.map((resumeItem, index) => {
         let startDateNumbers = resumeItem.resumeStartDate.split("-")
         let startDate = new Date()

@@ -1,15 +1,7 @@
 "use client"
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useLayoutEffect, useRef } from "react"
 import styles from "@/app/styles/header.module.css"
-import {
-  Archivo_Black,
-  Archivo,
-  Yeseva_One,
-  Italiana,
-  Antic_Didone,
-  DM_Serif_Display,
-  Oswald,
-} from "next/font/google"
+import { Oswald } from "next/font/google"
 import Link from "next/link"
 import { Menu } from "react-feather"
 import { X } from "react-feather"
@@ -17,6 +9,7 @@ import { motion } from "framer-motion"
 import { Cross } from "hamburger-react"
 import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
+import { useRouter } from "next/navigation"
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -24,55 +17,96 @@ const oswald = Oswald({
 })
 
 interface HeaderProps {
-  timeline: object
+  homepageContainer?: string
+  resumeContainer?: string
+  aboutContainer?: string
+  workContainer?: string
 }
 
-const Header: React.FC<HeaderProps> = ({ timeline }) => {
+const Header: React.FC<HeaderProps> = ({
+  homepageContainer,
+  aboutContainer,
+  workContainer,
+  resumeContainer,
+}) => {
   const [toggleMenu, setToggleMenu] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const router = useRouter()
 
-  const containerRef = useRef(null)
-
-  const menuRef = useRef(null)
-
-  useEffect(() => {}, [timeline])
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsClient(true)
-    const tl = gsap.timeline()
-    tl.fromTo(
-      `.${styles.container}`,
-      { y: "-100%" },
-      { y: "0", duration: 1.5, delay: 0.5, ease: "power3.inOut" }
-    )
-    tl.fromTo(
-      `.${styles.menu}`,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, ease: "power3.inOut" }
-    )
+    if (window.location.pathname === "/") {
+      const tl = gsap.timeline()
+      tl.add("start")
+      tl.fromTo(
+        `.${styles.container}`,
+        { yPercent: -100 },
+        { yPercent: 0, duration: 1.5, ease: "power3.out" },
+        "start"
+      )
+      tl.fromTo(`.${styles.menu}`, { opacity: 0 }, { opacity: 1 }, 3)
+    }
   }, [])
 
   const enterHover = (className1: string, className2: string) => {
     gsap.to(`.${className1}`, {
       y: "-100%",
+      duration: 0.5,
     })
     gsap.to(`.${className2}`, {
       y: "-100%",
+      duration: 0.5,
     })
   }
 
   const exitHover = (className1: string, className2: string) => {
     gsap.to(`.${className1}`, {
       y: 0,
+      duration: 0.5,
     })
     gsap.to(`.${className2}`, {
       y: 0,
+      duration: 0.5,
     })
+  }
+
+  const handleNavigate = async (destination: string) => {
+    setToggleMenu(false)
+    const tl = gsap.timeline()
+    tl.add("start")
+
+    let containerClass
+    let location = window.location.pathname
+
+    if (location === "/") {
+      containerClass = homepageContainer
+    }
+    if (location === "/work") {
+      containerClass = workContainer
+    }
+    if (location === "/about") {
+      containerClass = aboutContainer
+    }
+    if (location === "/resume") {
+      containerClass = resumeContainer
+    }
+
+    if (containerClass !== undefined && location !== destination)
+      await tl.fromTo(
+        containerClass,
+        { y: "0", ease: "power3.out" },
+        { y: "100vh", duration: 0.5 },
+        "start"
+      )
+    console.log(location !== destination)
+    if (location !== destination) {
+      await router.replace(destination)
+    }
   }
 
   return (
     <div>
-      <div className={`${styles.container}`} ref={containerRef}>
+      <div className={`${styles.container}`}>
         <ul className={styles.navContainer}>
           <div className={styles.brandContainer}>
             <Link
@@ -147,12 +181,8 @@ const Header: React.FC<HeaderProps> = ({ timeline }) => {
                 onMouseLeave={() => exitHover(styles.menu, styles.menu)}
                 className={`${styles.animationItemsWrapper}`}
               >
-                <div ref={menuRef} className={styles.menu}>
-                  Menu
-                </div>
-                <div ref={menuRef} className={styles.menu}>
-                  Menu
-                </div>
+                <div className={styles.menu}>Menu</div>
+                <div className={styles.menu}>Menu</div>
               </div>
             </a>
           </div>
@@ -199,36 +229,48 @@ const Header: React.FC<HeaderProps> = ({ timeline }) => {
         />
 
         <div className={styles.title}>
-          <Link onClick={() => setToggleMenu(false)} href={"/"}>
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => handleNavigate("/")}
+          >
             <h1 style={{ fontWeight: "700" }} className={oswald.className}>
               Nate Cohen
             </h1>
-          </Link>
+          </div>
           <h3>Software Engineer</h3>
           <ul>
             <li
               style={{ fontWeight: "700" }}
               className={`${styles.menuItem} ${oswald.className}`}
             >
-              <Link onClick={() => setToggleMenu(false)} href={"/work"}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleNavigate("/work")}
+              >
                 Work
-              </Link>
+              </div>
             </li>
             <li
               style={{ fontWeight: "700" }}
               className={`${styles.menuItem} ${oswald.className}`}
             >
-              <Link onClick={() => setToggleMenu(false)} href={"/about"}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleNavigate("/about")}
+              >
                 About
-              </Link>
+              </div>
             </li>
             <li
               style={{ fontWeight: "700" }}
               className={`${styles.menuItem} ${oswald.className}`}
             >
-              <Link onClick={() => setToggleMenu(false)} href={"/resume"}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleNavigate("/resume")}
+              >
                 Resume
-              </Link>
+              </div>
             </li>
           </ul>
         </div>
