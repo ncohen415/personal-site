@@ -203,10 +203,10 @@
     padding: 1rem 3rem 1rem 3rem;
   }
   .resumeDetailsInnerWrapper {
-    overflow: scroll;
+    /* overflow: scroll; */
   }
   .experienceInnerWrapper {
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 }
 @media (min-width: 500px) {
