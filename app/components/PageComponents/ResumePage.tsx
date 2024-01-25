@@ -24,7 +24,7 @@ interface ResumeItem {
 
 interface ResumePageProps {
   resumeItems: Array<ResumeItem>
-  experience: string
+  //   experience: string
 }
 const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
   useLayoutEffect(() => {
