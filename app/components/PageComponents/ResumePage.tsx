@@ -43,279 +43,125 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
   const widthRef = useRef<HTMLDivElement>(null)
   return (
     <div className={styles.container}>
-      <div
-        style={{
-          display: "flex",
-          height: "inherit",
-          flexDirection: "column",
-        }}
-      >
+      <div className={styles.resumeInnerWrapper}>
         <div className={styles.resumeHeaderContainer}>
-          <div
-            style={{
-              display: "flex",
-              height: "100%",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flex: "0 1 30%",
-                backgroundColor: "black",
-                justifyContent: "center",
-                alignItems: "center",
-                boxShadow: "0px 0px 8px 2px",
-              }}
-            >
-              <div className={styles.image} style={{ overflow: "hidden" }}>
-                <Image alt="" src={Headshot} width={400} height={undefined} />
+          <div className={styles.resumeHeaderInnerWrapper}>
+            <div className={styles.headshotContainer}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  alt="Nate Cohen Headshot"
+                  src={Headshot}
+                  width={400}
+                  height={undefined}
+                />
               </div>
             </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                flex: "0 1 70%",
-                backgroundColor: "black",
-                justifyContent: "center",
-                alignItems: "flex-start",
-                paddingLeft: "3rem",
-                zIndex: "1",
-                boxShadow: "0px 0px 8px 2px",
-              }}
-            >
-              <h1
-                style={{
-                  fontSize: "45px",
-                  color: "white",
-                  fontWeight: "700",
-                }}
-                className={oswald.className}
-              >
-                Nate Cohen
+            <div className={styles.titleWrapper}>
+              <h1 className={`${oswald.className} ${styles.name}`}>
+                <strong>Nate Cohen</strong>
               </h1>
-              <h3
-                style={{
-                  fontSize: "25px",
-                  color: "white",
-                }}
-                className={oswald.className}
-              >
+              <h3 className={`${oswald.className} ${styles.role}`}>
                 Full Stack Engineer
               </h3>
-              <div
-                style={{
-                  display: "flex",
-                  marginTop: "1rem",
-                }}
-              >
-                <Linkedin color="#fff" style={{ margin: "0 .5rem 0 .5rem" }} />
-                <GitHub color="#fff" style={{ margin: "0 .5rem 0 .5rem" }} />
-                <Instagram color="#fff" style={{ margin: "0 .5rem 0 .5rem" }} />
-                <Mail color="#fff" style={{ margin: "0 .5rem 0 .5rem" }} />
-                <Link2 color="#fff" style={{ margin: "0 .5rem 0 .5rem" }} />
+              <div className={styles.socialIconsWrapper}>
+                <Linkedin color="#fff" />
+                <GitHub color="#fff" />
+                <Instagram color="#fff" />
+                <Mail color="#fff" />
+                <Link2 color="#fff" />
               </div>
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flex: " 0 1 75%",
-            height: "100%",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flex: "0 1 30%",
-              justifyContent: "center",
-              backgroundColor: "rgba(255, 0, 0, .3)",
-              alignItems: "center",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                width: "100%",
-                overflow: "scroll",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "1rem 3rem 1rem 3rem",
-                }}
-              >
+        <div className={styles.resumeBodyContainer}>
+          <div className={styles.resumeDetailsWrapper}>
+            <div className={styles.resumeDetailsInnerWrapper}>
+              <div className={styles.detailChunk}>
                 <h1
-                  style={{
-                    fontSize: "45px",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                  className={oswald.className}
+                  className={`${oswald.className} ${styles.detailChunkHeading}`}
                 >
                   Details
                 </h1>
-                <hr style={{ marginTop: "1rem", marginBottom: "1rem" }} />
+                <hr className={styles.divider} />
                 <div>
                   <ul>
-                    <li
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginBottom: ".5rem",
-                      }}
-                    >
+                    <li className={styles.detailListItem}>
                       <MapPin
                         size={16}
                         color="#000"
-                        style={{ margin: "0 .5rem 0 0" }}
+                        className={styles.detailIcon}
                       />
                       Brooklyn, NY
                     </li>
-                    <li
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        marginBottom: ".5rem",
-                      }}
-                    >
+                    <li className={styles.detailListItem}>
                       <Mail
                         size={16}
                         color="#000"
-                        style={{ margin: "0 .5rem 0 0" }}
+                        className={styles.detailIcon}
                       />
                       nate.cohen415(@)gmail.com
                     </li>
                   </ul>
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "1rem 3rem 1rem 3rem",
-                }}
-              >
+              <div className={styles.detailChunk}>
                 <h1
-                  style={{
-                    fontSize: "45px",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                  className={oswald.className}
+                  className={`${oswald.className} ${styles.detailChunkHeading}`}
                 >
                   Education
                 </h1>
-                <hr style={{ marginTop: "1rem", marginBottom: "1rem" }} />
+                <hr className={styles.divider} />
                 <div>
                   <ul>
-                    <li
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        marginBottom: ".5rem",
-                        flexDirection: "column",
-                      }}
-                    >
+                    <li className={styles.educationItem}>
                       <strong>• Bachelor of Arts</strong>
-                      <p style={{ marginLeft: ".65rem" }}>
-                        Oberlin College, Oberlin, OH, 2013-2017{" "}
-                      </p>
+                      <p>Oberlin College, Oberlin, OH, 2013-2017 </p>
                     </li>
                   </ul>
                 </div>
               </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "1rem 3rem 1rem 3rem",
-                }}
-              >
+              <div className={styles.detailChunk}>
                 <h1
-                  style={{
-                    fontSize: "45px",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                  className={oswald.className}
+                  className={`${oswald.className} ${styles.detailChunkHeading}`}
                 >
                   Toolkit
                 </h1>
-                <hr style={{ marginTop: "1rem", marginBottom: "1rem" }} />
-                <div
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <div style={{ flex: "0 1 50%" }}>JavaScript</div>
-                  <div style={{ flex: "0 1 50%" }}>React</div>
-                  <div style={{ flex: "0 1 50%" }}>TypeScript</div>
-                  <div style={{ flex: "0 1 50%" }}>React Native</div>
-                  <div style={{ flex: "0 1 50%" }}>Python</div>
-                  <div style={{ flex: "0 1 50%" }}>HTML5</div>
-                  <div style={{ flex: "0 1 50%" }}>CSS3</div>
-                  <div style={{ flex: "0 1 50%" }}>Next.js</div>
-                  <div style={{ flex: "0 1 50%" }}>Django</div>
-                  <div style={{ flex: "0 1 50%" }}>Gatsby</div>
-                  <div style={{ flex: "0 1 50%" }}>AWS</div>
-                  <div style={{ flex: "0 1 50%" }}>Expo</div>
-                  <div style={{ flex: "0 1 50%" }}>Tailwind CSS</div>
-                  <div style={{ flex: "0 1 50%" }}>Wordpress</div>
-                  <div style={{ flex: "0 1 50%" }}>Shopify</div>
-                  <div style={{ flex: "0 1 50%" }}>MongoDB</div>
-                  <div style={{ flex: "0 1 50%" }}>PostgreSQL</div>
-                  <div style={{ flex: "0 1 50%" }}>SQLite</div>
+                <hr className={styles.divider} />
+                <div className={styles.toolkitWrapper}>
+                  <div className={styles.toolkitItem}>JavaScript</div>
+                  <div className={styles.toolkitItem}>React</div>
+                  <div className={styles.toolkitItem}>TypeScript</div>
+                  <div className={styles.toolkitItem}>React Native</div>
+                  <div className={styles.toolkitItem}>Python</div>
+                  <div className={styles.toolkitItem}>HTML5</div>
+                  <div className={styles.toolkitItem}>CSS3</div>
+                  <div className={styles.toolkitItem}>Next.js</div>
+                  <div className={styles.toolkitItem}>Django</div>
+                  <div className={styles.toolkitItem}>Gatsby</div>
+                  <div className={styles.toolkitItem}>AWS</div>
+                  <div className={styles.toolkitItem}>Expo</div>
+                  <div className={styles.toolkitItem}>Tailwind CSS</div>
+                  <div className={styles.toolkitItem}>Wordpress</div>
+                  <div className={styles.toolkitItem}>Shopify</div>
+                  <div className={styles.toolkitItem}>MongoDB</div>
+                  <div className={styles.toolkitItem}>PostgreSQL</div>
+                  <div className={styles.toolkitItem}>SQLite</div>
+                  <div className={styles.toolkitItem}>Firebase</div>
+                  <div className={styles.toolkitItem}>Supabase</div>
                 </div>
               </div>
+              <hr className={`${styles.divider} mobile`} />
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              flex: "0 1 70%",
-              backgroundColor: "white",
-              justifyContent: "center",
-              alignItems: "flex-start",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                width: "100%",
-                overflow: "scroll",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "1rem 3rem 1rem 3rem",
-                }}
-              >
+          <div className={styles.experienceWrapper}>
+            <div className={styles.experienceInnerWrapper}>
+              <div className={styles.experienceChunk}>
                 <h1
-                  style={{
-                    fontSize: "45px",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                  className={oswald.className}
+                  className={`${oswald.className} ${styles.experienceChunkHeading}`}
                 >
                   Summary
                 </h1>
-                <hr style={{ marginTop: "1rem", marginBottom: "1rem" }} />
+                <hr className={styles.divider} />
                 <p>
                   Man bun cupping iceland, godard mustache fam venmo Brooklyn
                   umami vibecession flannel echo park taxidermy vegan shaman.
@@ -324,43 +170,21 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                   lumbersexual yes plz authentic distillery meh.
                 </p>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "1rem 3rem 1rem 3rem",
-                }}
-              >
+              <div className={styles.experienceChunk}>
                 <h1
-                  style={{
-                    fontSize: "45px",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                  className={oswald.className}
+                  className={`${oswald.className} ${styles.experienceChunkHeading}`}
                 >
                   Experience
                 </h1>
-                <hr style={{ marginTop: "1rem", marginBottom: "1rem" }} />
+                <hr className={styles.divider} />
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  padding: "1rem 3rem 1rem 3rem",
-                }}
-              >
+              <div className={styles.experienceChunk}>
                 <h1
-                  style={{
-                    fontSize: "45px",
-                    color: "black",
-                    fontWeight: "700",
-                  }}
-                  className={oswald.className}
+                  className={`${oswald.className} ${styles.experienceChunkHeading}`}
                 >
                   References
                 </h1>
-                <hr style={{ marginTop: "1rem", marginBottom: "1rem" }} />
+                <hr className={styles.divider} />
               </div>
             </div>
           </div>
