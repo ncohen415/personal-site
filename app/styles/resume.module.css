@@ -96,7 +96,6 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: scroll;
 }
 
 .detailChunk {
@@ -155,7 +154,6 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: scroll;
 }
 .experienceChunk {
   display: flex;
@@ -203,6 +201,12 @@
   .detailChunk,
   .experienceChunk {
     padding: 1rem 3rem 1rem 3rem;
+  }
+  .resumeDetailsInnerWrapper {
+    overflow: scroll;
+  }
+  .experienceInnerWrapper {
+    overflow: scroll;
   }
 }
 @media (min-width: 500px) {
