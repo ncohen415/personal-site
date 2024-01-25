@@ -81,12 +81,12 @@ const ResumeAccordion: React.FC<ResumeAccordionProps> = ({
                       href={resumeItem.resumeCompanyHomepage}
                       target="_blank"
                     >
-                      <Image
+                      {/* <Image
                         src={resumeItem.resumeCompanyLogo.url}
                         height={100}
                         width={50}
                         alt=""
-                      />
+                      /> */}
                     </a>
                     <div className={styles.companyInfoWrapper}>
                       <h1

@@ -5,6 +5,7 @@ import Header from "@/app/components/Header"
 import PageLayout from "@/app/components/PageLayout"
 import { getBackgroundImages } from "@/app/actions"
 import styles from "@/app/styles/pageLayout.module.css"
+import { useRouter } from "next/navigation"
 
 //styles for classnames
 import homepageStyles from "@/app/styles/home.module.css"
@@ -35,6 +36,7 @@ export default async function RootLayout({
           resumeContainer={`.${resumeStyles.container}`}
           aboutContainer={`.${aboutStyles.innerWrapper}`}
         />
+
         <div className={styles.mainWrapper}>{children}</div>
         {/* <PageLayout>{children}</PageLayout> */}
       </body>

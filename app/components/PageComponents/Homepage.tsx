@@ -9,6 +9,7 @@ import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
 import Headshot from "@/public/images/headshot-removebg-preview.png"
 import Header from "../Header"
+import { usePathname } from "next/navigation"
 
 gsap.registerPlugin(TextPlugin)
 
@@ -19,6 +20,7 @@ const oswald = Oswald({
 
 export default function Homepage() {
   const homepageContainerRef = useRef(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const tl = gsap.timeline()
@@ -63,7 +65,7 @@ export default function Homepage() {
       },
       "start"
     )
-  }, [])
+  }, [pathname])
 
   const enterAnimation = () => {
     const tl = gsap.timeline()

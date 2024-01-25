@@ -10,6 +10,7 @@ import { Cross } from "hamburger-react"
 import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
 import { useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -31,10 +32,30 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const [toggleMenu, setToggleMenu] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [toggleHeaderVisible, setToggleHeaderVisible] = useState(true)
   const router = useRouter()
+  const pathname = usePathname()
+  const heightRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
     setIsClient(true)
+
+    let containerClass
+    let location = window.location.pathname
+
+    if (location === "/") {
+      containerClass = homepageContainer
+    }
+    if (location === "/work") {
+      containerClass = workContainer
+    }
+    if (location === "/about") {
+      containerClass = aboutContainer
+    }
+    if (location === "/resume") {
+      containerClass = resumeContainer
+    }
+
     if (window.location.pathname === "/") {
       const tl = gsap.timeline()
       tl.add("start")
@@ -46,7 +67,45 @@ const Header: React.FC<HeaderProps> = ({
       )
       tl.fromTo(`.${styles.menu}`, { opacity: 0 }, { opacity: 1 }, 3)
     }
-  }, [])
+    if (
+      pathname !== "/resume" &&
+      heightRef.current !== null &&
+      heightRef.current.clientHeight < 100 &&
+      containerClass !== undefined
+    ) {
+      const tl = gsap.timeline()
+      tl.fromTo(
+        containerClass,
+        { paddingTop: "2rem" },
+        { paddingTop: "100px", duration: 0.65, ease: "expo.out" },
+        "start"
+      )
+    }
+
+    if (pathname === "/resume" && resumeContainer) {
+      const tl = gsap.timeline()
+      tl.add("start")
+      tl.fromTo(
+        `.${styles.container}`,
+        { yPercent: 0 },
+        { yPercent: -100, duration: 0.65, ease: "expo.out" },
+        "start"
+      )
+      tl.fromTo(
+        `.${styles.fullContainer}`,
+        { height: 100 },
+        { height: 0, duration: 0.65, ease: "expo.out" },
+        "start"
+      )
+      // tl.fromTo(
+      //   resumeContainer,
+      //   { paddingTop: 100 },
+      //   { paddingTop: "2rem", duration: 0.65, ease: "expo.out" },
+      //   "start"
+      // )
+      tl.fromTo(`.${styles.menu}`, { opacity: 0 }, { opacity: 1 }, 3)
+    }
+  }, [pathname])
 
   const enterHover = (className1: string, className2: string) => {
     gsap.to(`.${className1}`, {
@@ -91,21 +150,21 @@ const Header: React.FC<HeaderProps> = ({
       containerClass = resumeContainer
     }
 
-    if (containerClass !== undefined && location !== destination)
+    if (containerClass !== undefined && location !== destination) {
       await tl.fromTo(
         containerClass,
         { y: "0", ease: "power3.out" },
         { y: "100vh", duration: 0.5 },
         "start"
       )
-    console.log(location !== destination)
-    if (location !== destination) {
-      await router.replace(destination)
+      await router.push(destination)
     }
   }
 
+  console.log(pathname)
+
   return (
-    <div>
+    <div ref={heightRef} className={styles.fullContainer}>
       <div className={`${styles.container}`}>
         <ul className={styles.navContainer}>
           <div className={styles.brandContainer}>
