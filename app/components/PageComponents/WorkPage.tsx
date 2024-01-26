@@ -51,17 +51,17 @@ const WorkPage: React.FC<WorkPageProps> = ({ prodWork, conceptWork }) => {
         <h1 style={{ fontWeight: "500" }} className={oswald.className}>
           Work
         </h1>
-        <h3 className={archivo.className}>
+        {/* <h3 className={archivo.className}>
           {`Projects I've worked on that are in production.`}
-        </h3>
+        </h3> */}
         <hr style={{ marginTop: "1.25rem" }} />
         <WorkAccordion work={prodWork} />
       </div>
       <div className={styles.projectsWrapper}>
         <h1 className={oswald.className}>Concepts</h1>
-        <h3
+        {/* <h3
           className={archivo.className}
-        >{`Concepts that I'm fleshing out.`}</h3>
+        >{`Concepts that I'm fleshing out.`}</h3> */}
       </div>
     </div>
   )

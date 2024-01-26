@@ -31,29 +31,33 @@ const AboutPage = () => {
       </div>
       <div className={styles.text}>
         <p>
-          I&apos;m baby pork belly put a bird on it kombucha listicle you
-          probably haven&apos;t heard of them retro. Gluten-free whatever
-          actually, bushwick ennui everyday carry pok pok mumblecore forage
-          brunch. Lyft bitters hexagon leggings marfa pop-up. Selfies 90&apos;s
-          mukbang pinterest cardigan copper mug praxis seitan.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <br />
         <p>
-          Bodega boys keffiyeh readymade, man braid biodiesel meh chambray
-          mlkshk mukbang bitters listicle cliche JOMO gentrify. VHS meggings
-          actually edison bulb mukbang butcher artisan vexillologist drinking
-          vinegar ramps mlkshk echo park. Palo santo post-ironic fit banh mi
-          succulents. Typewriter skateboard bespoke, selvage portland neutral
-          milk hotel hashtag meh yuccie ennui neutra vibecession kinfolk.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <br />
         <p>
-          Bodega boys keffiyeh readymade, man braid biodiesel meh chambray
-          mlkshk mukbang bitters listicle cliche JOMO gentrify. VHS meggings
-          actually edison bulb mukbang butcher artisan vexillologist drinking
-          vinegar ramps mlkshk echo park. Palo santo post-ironic fit banh mi
-          succulents. Typewriter skateboard bespoke, selvage portland neutral
-          milk hotel hashtag meh yuccie ennui neutra vibecession kinfolk.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <br />
       </div>

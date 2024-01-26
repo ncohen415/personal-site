@@ -163,11 +163,14 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                 </h1>
                 <hr className={styles.divider} />
                 <p>
-                  Man bun cupping iceland, godard mustache fam venmo Brooklyn
-                  umami vibecession flannel echo park taxidermy vegan shaman.
-                  Fanny pack dreamcatcher iceland vaporware salvia. Cloud bread
-                  prism marxism pitchfork, solarpunk chillwave plaid
-                  lumbersexual yes plz authentic distillery meh.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
                 </p>
               </div>
               <div className={styles.experienceChunk}>
