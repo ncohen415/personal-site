@@ -39,9 +39,11 @@ interface ResumePageProps {
 }
 const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
   const [resumeIndex, setResumeIndex] = useState<number | null>()
+  const [isClient, setIsClient] = useState<boolean>(false)
   const origin = window?.location?.origin
   const router = useRouter()
   useLayoutEffect(() => {
+    setIsClient(true)
     const tl = gsap.timeline()
     gsap.defaults({
       duration: 1.5,
@@ -67,7 +69,9 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
       { y: "100vh", duration: 0.75, ease: "expo.out" },
       "start"
     )
-    await router.push(origin)
+    if (isClient) {
+      await router.push(origin)
+    }
   }
 
   const handleResumeIndex = (index: number) => {
