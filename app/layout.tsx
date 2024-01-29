@@ -34,9 +34,8 @@ export default async function RootLayout({
           homepageContainer={`.${homepageStyles.container}`}
           workContainer={`.${workStyles.container}`}
           resumeContainer={`.${resumeStyles.container}`}
-          aboutContainer={`.${aboutStyles.innerWrapper}`}
+          aboutContainer={`.${aboutStyles.container}`}
         />
-
         <div className={styles.mainWrapper}>{children}</div>
         {/* <PageLayout>{children}</PageLayout> */}
       </body>

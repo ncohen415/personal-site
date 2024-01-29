@@ -9,9 +9,21 @@ const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "200", "300", "500", "600", "700"],
 })
+interface ResumeItem {
+  resumeCompanyName: string
+  resumeCompanyRole: string
+  resumeStartDate: string
+  resumeEndDate: string
+  resumeBullets: Array<string>
+  resumeCompanyHomepage: string
+  resumeCompanyLogo: Record<string, string>
+  resumeItemOrder: number
+}
 const Resume = async () => {
   const data = await getResumeItems()
-  const resumeItems = data.data.allResumeItems
+  const resumeItems = data.data.allResumeItems.sort(
+    (a: ResumeItem, b: ResumeItem) => a.resumeItemOrder - b.resumeItemOrder
+  )
   return <ResumePage resumeItems={resumeItems} />
 }
 export default Resume

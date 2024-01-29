@@ -109,6 +109,7 @@ export async function getResumeItems() {
             resumeEndDate
             resumeBullets
             resumeCompanyHomepage
+            resumeItemOrder
             resumeCompanyLogo {
               url
             }

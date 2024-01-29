@@ -4,7 +4,6 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
-  /* overflow: scroll; */
 }
 .resumeInnerWrapper {
   display: flex;
@@ -173,6 +172,83 @@
 .divider.mobile {
   display: block;
 }
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.container {
+  min-height: 3rem;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.headingLeft {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.homepageLink {
+  margin-right: 2rem;
+}
+.companyName {
+  font-size: 22px;
+  white-space: nowrap;
+}
+.companyRole {
+  font-size: 16px;
+}
+.companyInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+.headingRight {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.datesWrapper {
+  display: flex;
+  margin-right: 2rem;
+}
+.dates {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.accordionBody {
+  overflow: hidden;
+}
+
+.bulletsWrapper {
+  margin-top: 1rem;
+}
+.bullet {
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  transition: 0.3s ease-in-out;
+}
+
+.icon.selected {
+  transform: rotate(90deg);
+}
+
 @media (min-width: 912px) {
   .resumeHeaderInnerWrapper {
     flex-direction: row;
@@ -209,6 +285,22 @@
     /* overflow: scroll; */
   }
 }
+
+@media (min-width: 570px) {
+  .heading {
+    flex-direction: row;
+    align-items: center;
+  }
+  .headingRight {
+    display: flex;
+    width: unset;
+    justify-content: unset;
+  }
+  .headingLeft {
+    padding-bottom: unset;
+  }
+}
+
 @media (min-width: 500px) {
   .toolkitItem {
     flex: 0 1 33%;

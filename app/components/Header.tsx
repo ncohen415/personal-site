@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({
   const router = useRouter()
   const pathname = usePathname()
   const heightRef = useRef<HTMLDivElement>(null)
-
+  console.log(pathname)
   useLayoutEffect(() => {
     setIsClient(true)
 
@@ -62,10 +62,25 @@ const Header: React.FC<HeaderProps> = ({
       tl.fromTo(
         `.${styles.container}`,
         { yPercent: -100 },
-        { yPercent: 0, duration: 1.5, ease: "power3.out" },
+        { yPercent: 0, duration: 1.5, ease: "expo.out" },
         "start"
       )
       tl.fromTo(`.${styles.menu}`, { opacity: 0 }, { opacity: 1 }, 3)
+    }
+    if (window.location.pathname !== ("/" || "/resume")) {
+      const tl = gsap.timeline()
+      tl.add("start")
+      tl.fromTo(
+        `.${styles.container}`,
+        { yPercent: -100 },
+        { yPercent: 0, duration: 0 },
+        "start"
+      ).fromTo(
+        `.${styles.menu}`,
+        { opacity: 0, duration: 0 },
+        { opacity: 1 },
+        0
+      )
     }
     if (
       pathname !== "/resume" &&
@@ -97,12 +112,6 @@ const Header: React.FC<HeaderProps> = ({
         { height: 0, duration: 0.65, ease: "expo.out" },
         "start"
       )
-      // tl.fromTo(
-      //   resumeContainer,
-      //   { paddingTop: 100 },
-      //   { paddingTop: "2rem", duration: 0.65, ease: "expo.out" },
-      //   "start"
-      // )
       tl.fromTo(`.${styles.menu}`, { opacity: 0 }, { opacity: 1 }, 3)
     }
   }, [pathname])
@@ -153,15 +162,13 @@ const Header: React.FC<HeaderProps> = ({
     if (containerClass !== undefined && location !== destination) {
       await tl.fromTo(
         containerClass,
-        { y: "0", ease: "power3.out" },
+        { y: "0", ease: "expo.out" },
         { y: "100vh", duration: 0.5 },
         "start"
       )
       await router.push(destination)
     }
   }
-
-  console.log(pathname)
 
   return (
     <div ref={heightRef} className={styles.fullContainer}>

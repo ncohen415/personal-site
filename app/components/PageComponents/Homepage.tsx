@@ -32,19 +32,19 @@ export default function Homepage() {
     tl.fromTo(
       `.${styles.container}`,
       { y: "100vh" },
-      { y: "0", ease: "power3.out" },
+      { y: "0", ease: "expo.out" },
       "start"
     )
     tl.fromTo(
       `.${styles.roleChar}`,
       { y: "100vh" },
-      { y: "0", ease: "power3.inOut", stagger: 0.05 },
+      { y: "0", ease: "expo.out", stagger: 0.05 },
       "start"
     )
     tl.fromTo(
       `.${styles.nameChar}`,
       { y: "100vh" },
-      { y: "0", duration: 1.5, ease: "power3.inOut", stagger: 0.05 },
+      { y: "0", duration: 1.5, ease: "expo.out", stagger: 0.05 },
       "start"
     )
     tl.fromTo(
@@ -60,7 +60,7 @@ export default function Homepage() {
         y: "0",
         duration: 1.5,
         delay: 1,
-        ease: "power3.inOut",
+        ease: "expo.out",
         stagger: 0.05,
       },
       "start"
@@ -78,7 +78,7 @@ export default function Homepage() {
       {
         width: "100%",
         duration: 0.45,
-        ease: "power3.out",
+        ease: "expo.out",
       }
     )
   }
@@ -95,7 +95,7 @@ export default function Homepage() {
         left: "0%",
         duration: 0.45,
         immediateRender: false,
-        ease: "power3.out",
+        ease: "expo.out",
       }
     )
   }

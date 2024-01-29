@@ -1,11 +1,21 @@
 "use client"
-import React, { useLayoutEffect, useRef } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import { Oswald } from "next/font/google"
 import styles from "@/app/styles/resume.module.css"
 import { gsap } from "gsap"
-import { Linkedin, Instagram, GitHub, Mail, Link2, MapPin } from "react-feather"
+import {
+  Linkedin,
+  Instagram,
+  GitHub,
+  Mail,
+  Link2,
+  MapPin,
+  ChevronRight,
+} from "react-feather"
 import Image from "next/image"
 import Headshot from "@/public/images/headshot-removebg-preview.png"
+import { useRouter } from "next/navigation"
+import { motion } from "framer-motion"
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -20,6 +30,7 @@ interface ResumeItem {
   resumeBullets: Array<string>
   resumeCompanyHomepage: string
   resumeCompanyLogo: Record<string, string>
+  resumeItemOrder: number
 }
 
 interface ResumePageProps {
@@ -27,20 +38,46 @@ interface ResumePageProps {
   //   experience: string
 }
 const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
+  const [resumeIndex, setResumeIndex] = useState<number | null>()
+  const origin = window?.location?.origin
+  const router = useRouter()
   useLayoutEffect(() => {
     const tl = gsap.timeline()
     gsap.defaults({
       duration: 1.5,
     })
     tl.add("start")
-    // tl.fromTo(
-    //   `.${styles.profileContainer}`,
-    //   { y: "-100vh" },
-    //   { y: "0", duration: 0.75, ease: "expo.out" },
-    //   "start"
-    // )
+    tl.fromTo(
+      `.${styles.resumeInnerWrapper}`,
+      { y: "100vh" },
+      { y: "0", duration: 0.75, ease: "expo.out" },
+      "start"
+    )
   }, [])
-  const widthRef = useRef<HTMLDivElement>(null)
+
+  const handleGoHome = async () => {
+    const tl = gsap.timeline()
+    gsap.defaults({
+      duration: 1.5,
+    })
+    tl.add("start")
+    await tl.fromTo(
+      `.${styles.resumeInnerWrapper}`,
+      { y: "0" },
+      { y: "100vh", duration: 0.75, ease: "expo.out" },
+      "start"
+    )
+    await router.push(origin)
+  }
+
+  const handleResumeIndex = (index: number) => {
+    if (index === resumeIndex) {
+      setResumeIndex(null)
+    } else {
+      setResumeIndex(index)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.resumeInnerWrapper}>
@@ -64,11 +101,30 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                 Full Stack Engineer
               </h3>
               <div className={styles.socialIconsWrapper}>
-                <Linkedin color="#fff" />
-                <GitHub color="#fff" />
-                <Instagram color="#fff" />
-                <Mail color="#fff" />
-                <Link2 color="#fff" />
+                <a
+                  href="https://www.linkedin.com/in/nathan-levi-cohen-ab1669140/"
+                  target="_blank"
+                >
+                  <Linkedin color="#fff" />
+                </a>
+                <a href="https://github.com/ncohen415" target="_blank">
+                  <GitHub color="#fff" />
+                </a>
+                <a
+                  href="https://www.instagram.com/natelcohen/?hl=en"
+                  target="_blank"
+                >
+                  <Instagram color="#fff" />
+                </a>
+                <a href={`mailto:nate.cohen415@gmail.com`}>
+                  <Mail color="#fff" />
+                </a>
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleGoHome()}
+                >
+                  <Link2 color="#fff" />
+                </div>
               </div>
             </div>
           </div>
@@ -163,14 +219,11 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                 </h1>
                 <hr className={styles.divider} />
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Full Stack Engineer with experience in developing performant
+                  web applications. Skilled in designing, implementing, and
+                  maintaining software systems using an assortment of
+                  programming languages and tools. A consummate team player with
+                  a knack for adapting to complex challenges.
                 </p>
               </div>
               <div className={styles.experienceChunk}>
@@ -180,6 +233,124 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                   Experience
                 </h1>
                 <hr className={styles.divider} />
+                <div>
+                  {resumeItems?.map((resumeItem, index) => {
+                    let startDateNumbers = resumeItem.resumeStartDate.split("-")
+                    let startDate = new Date()
+                    startDate.setFullYear(parseInt(startDateNumbers[0]))
+                    startDate.setMonth(parseInt(startDateNumbers[1]) - 1)
+
+                    let endDateNumbers = resumeItem.resumeEndDate.split("-")
+                    let endDate = new Date()
+                    endDate.setFullYear(parseInt(endDateNumbers[0]))
+                    endDate.setMonth(parseInt(endDateNumbers[1]) - 1)
+                    return (
+                      <React.Fragment key={index}>
+                        <div>
+                          <h2>
+                            <button
+                              onClick={() => handleResumeIndex(index)}
+                              type="button"
+                              className={styles.heading}
+                            >
+                              <div className={styles.headingLeft}>
+                                <a
+                                  className={styles.homepageLink}
+                                  href={resumeItem.resumeCompanyHomepage}
+                                  target="_blank"
+                                >
+                                  {resumeItem?.resumeCompanyLogo?.url ? (
+                                    <Image
+                                      src={resumeItem.resumeCompanyLogo.url}
+                                      height={100}
+                                      width={50}
+                                      alt=""
+                                    />
+                                  ) : (
+                                    <div
+                                      style={{
+                                        height: "100px",
+                                        width: "50px",
+                                      }}
+                                    />
+                                  )}
+                                </a>
+                                <div className={styles.companyInfoWrapper}>
+                                  <h1
+                                    className={`${styles.companyName} ${oswald.className}`}
+                                  >
+                                    {resumeItem.resumeCompanyName}
+                                  </h1>
+                                  <h3 className={`${styles.companyRole}`}>
+                                    {resumeItem.resumeCompanyRole}
+                                  </h3>
+                                </div>
+                              </div>
+                              <div className={styles.headingRight}>
+                                <div className={styles.datesWrapper}>
+                                  <span className={styles.dates}>
+                                    {`
+                        ${startDate.toLocaleString("default", {
+                          month: "long",
+                        })} ${startDate.getFullYear()} - ${endDate.toLocaleString(
+                                      "default",
+                                      { month: "long" }
+                                    )} ${endDate.getFullYear()}`}
+                                  </span>
+                                </div>
+                                <ChevronRight
+                                  className={
+                                    resumeIndex === index
+                                      ? `${styles.icon} ${styles.selected}`
+                                      : styles.icon
+                                  }
+                                  size={20}
+                                />
+                              </div>
+                            </button>
+                          </h2>
+                          {/* accordion body */}
+                          <motion.div
+                            animate={index === resumeIndex ? "open" : "closed"}
+                            className={styles.accordionBody}
+                            initial="closed"
+                            variants={{
+                              open: {
+                                opacity: 1,
+                                height: "fit-content",
+                              },
+                              closed: {
+                                opacity: 0,
+                                height: 0,
+                              },
+                            }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <div>
+                              <ul>
+                                {resumeItem.resumeBullets
+                                  ? resumeItem.resumeBullets.map(
+                                      (bullet, index) => {
+                                        return (
+                                          <li
+                                            key={index}
+                                            style={{ marginBottom: "1.5rem" }}
+                                          >
+                                            • {bullet}
+                                          </li>
+                                        )
+                                      }
+                                    )
+                                  : ""}
+                              </ul>
+                            </div>
+                          </motion.div>
+                        </div>
+                        <hr className={styles.divider} />
+                      </React.Fragment>
+                    )
+                  })}
+                </div>
               </div>
               <div className={styles.experienceChunk}>
                 <h1
@@ -188,6 +359,12 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                   References
                 </h1>
                 <hr className={styles.divider} />
+                <p>
+                  Available upon request.{" "}
+                  <a href={`mailto:nate.cohen415@gmail.com`}>
+                    <strong>Email Me.</strong>
+                  </a>
+                </p>
               </div>
             </div>
           </div>
