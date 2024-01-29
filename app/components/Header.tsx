@@ -36,12 +36,12 @@ const Header: React.FC<HeaderProps> = ({
   const router = useRouter()
   const pathname = usePathname()
   const heightRef = useRef<HTMLDivElement>(null)
-  console.log(pathname)
+
   useLayoutEffect(() => {
     setIsClient(true)
 
     let containerClass
-    let location = window.location.pathname
+    let location = pathname
 
     if (location === "/") {
       containerClass = homepageContainer
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({
       containerClass = resumeContainer
     }
 
-    if (window.location.pathname === "/") {
+    if (pathname === "/") {
       const tl = gsap.timeline()
       tl.add("start")
       tl.fromTo(
@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({
       )
       tl.fromTo(`.${styles.menu}`, { opacity: 0 }, { opacity: 1 }, 3)
     }
-    if (window.location.pathname !== ("/" || "/resume")) {
+    if (pathname !== ("/" || "/resume")) {
       const tl = gsap.timeline()
       tl.add("start")
       tl.fromTo(
@@ -144,7 +144,7 @@ const Header: React.FC<HeaderProps> = ({
     tl.add("start")
 
     let containerClass
-    let location = window.location.pathname
+    let location = pathname
 
     if (location === "/") {
       containerClass = homepageContainer
