@@ -40,7 +40,6 @@ interface ResumePageProps {
 const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
   const [resumeIndex, setResumeIndex] = useState<number | null>()
   const [isClient, setIsClient] = useState<boolean>(false)
-  const origin = window?.location?.origin
   const router = useRouter()
   useLayoutEffect(() => {
     setIsClient(true)
@@ -70,6 +69,7 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
       "start"
     )
     if (isClient) {
+      const origin = window?.location?.origin
       await router.push(origin)
     }
   }
