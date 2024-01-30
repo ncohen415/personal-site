@@ -1,5 +1,3 @@
-// "use client"
-// import React, { useEffect, useState } from "react"
 import styles from "@/app/styles/home.module.css"
 import { Oswald } from "next/font/google"
 import PageHeading from "./components/PageHeading"

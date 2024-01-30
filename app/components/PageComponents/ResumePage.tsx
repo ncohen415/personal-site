@@ -479,12 +479,12 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                           className={styles.dates}
                         >
                           (
-                          {`
-         ${startDate.toLocaleString("default", {
-           month: "long",
-         })} ${startDate.getFullYear()} - ${endDate.toLocaleString("default", {
+                          {`${startDate.toLocaleString("default", {
                             month: "long",
-                          })} ${endDate.getFullYear()}`}{" "}
+                          })} ${startDate.getFullYear()} - ${endDate.toLocaleString(
+                            "default",
+                            { month: "long" }
+                          )} ${endDate.getFullYear()}`}
                           )
                         </span>
                       </h3>
