@@ -1,15 +1,20 @@
 "use client"
 import React, { useLayoutEffect } from "react"
 import styles from "@/app/styles/work.module.css"
-import { Archivo_Black, Archivo, Oswald } from "next/font/google"
+import { Archivo_Black, Archivo, Oswald, Montserrat } from "next/font/google"
 import { gsap } from "gsap"
 import WorkAccordion from "@/app/components/WorkAccordion"
+import PageHeading from "../PageHeading"
 
 const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
 const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "200", "300", "500", "600", "700"],
+})
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 interface Work {
@@ -47,22 +52,27 @@ const WorkPage: React.FC<WorkPageProps> = ({ prodWork, conceptWork }) => {
   }, [])
   return (
     <div className={styles.container}>
-      <div className={styles.projectsWrapper}>
+      <PageHeading
+        line1={`SELECTED WORK`}
+        subtext={`Check out some of the projects I've been working on.`}
+        connectButton={false}
+      />
+      {/* <div className={styles.projectsWrapper}>
         <h1 style={{ fontWeight: "500" }} className={oswald.className}>
           Work
         </h1>
-        {/* <h3 className={archivo.className}>
+        <h3 className={archivo.className}>
           {`Projects I've worked on that are in production.`}
-        </h3> */}
+        </h3>
         <hr style={{ marginTop: "1.25rem" }} />
         <WorkAccordion work={prodWork} />
       </div>
       <div className={styles.projectsWrapper}>
         <h1 className={oswald.className}>Concepts</h1>
-        {/* <h3
+        <h3
           className={archivo.className}
-        >{`Concepts that I'm fleshing out.`}</h3> */}
-      </div>
+        >{`Concepts that I'm fleshing out.`}</h3>
+      </div> */}
     </div>
   )
 }

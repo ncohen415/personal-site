@@ -1,18 +1,8 @@
 // "use client"
 // import React, { useEffect, useState } from "react"
 import styles from "@/app/styles/home.module.css"
-import {
-  Modak,
-  Whisper,
-  Archivo_Black,
-  Archivo,
-  Oswald,
-} from "next/font/google"
-import { Linkedin, Instagram, ArrowDown } from "react-feather"
-import Link from "next/link"
-import Image from "next/image"
-import { gsap } from "gsap"
-import Headshot from "@/public/images/headshot-removebg-preview.png"
+import { Oswald } from "next/font/google"
+import PageHeading from "./components/PageHeading"
 import Homepage from "@/app/components/PageComponents/Homepage"
 
 const oswald = Oswald({
@@ -21,5 +11,13 @@ const oswald = Oswald({
 })
 
 export default function Page() {
-  return <Homepage />
+  return (
+    <PageHeading
+      line1={`NATE COHEN`}
+      line2={`SOFTWARE ENGINEER`}
+      subtext={`I'm a self-taught Full Stack Engineer based in Brooklyn, New York. I love
+  art, creating, and bringing interesting ideas to life.`}
+      connectButton={true}
+    />
+  )
 }

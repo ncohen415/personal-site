@@ -6,6 +6,7 @@ import Waves from "@/public/images/waves.jpeg"
 import { gsap } from "gsap"
 import Headshot from "@/public/images/headshot.png"
 import { Oswald } from "next/font/google"
+import PageHeading from "../PageHeading"
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -40,7 +41,7 @@ const AboutPage = () => {
   }, [])
   return (
     <div className={styles.container}>
-      <div className={styles.heading}>
+      {/* <div className={styles.heading}>
         <h1 className={`${styles.headingText} ${oswald.className}`}>
           <span>NATE</span>
           <span>COHEN</span>
@@ -88,7 +89,7 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

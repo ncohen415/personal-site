@@ -1,14 +1,13 @@
 "use client"
 import React, { useEffect, useState, useLayoutEffect, useRef } from "react"
 import styles from "@/app/styles/home.module.css"
-import { Oswald } from "next/font/google"
+import { Oswald, Montserrat } from "next/font/google"
 import { Linkedin, Instagram, ArrowDown } from "react-feather"
 import Link from "next/link"
 import Image from "next/image"
 import { gsap } from "gsap"
 import { TextPlugin } from "gsap/TextPlugin"
 import Headshot from "@/public/images/headshot-removebg-preview.png"
-import Header from "../Header"
 import { usePathname } from "next/navigation"
 
 gsap.registerPlugin(TextPlugin)
@@ -16,6 +15,11 @@ gsap.registerPlugin(TextPlugin)
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "200", "300", "500", "600", "700"],
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 export default function Homepage() {
@@ -28,43 +32,66 @@ export default function Homepage() {
       duration: 1.5,
     })
     tl.add("start")
-
     tl.fromTo(
-      `.${styles.container}`,
-      { y: "100vh" },
-      { y: "0", ease: "expo.out" },
-      "start"
-    )
-    tl.fromTo(
-      `.${styles.roleChar}`,
-      { y: "100vh" },
-      { y: "0", ease: "expo.out", stagger: 0.05 },
-      "start"
-    )
-    tl.fromTo(
-      `.${styles.nameChar}`,
-      { y: "100vh" },
-      { y: "0", duration: 1.5, ease: "expo.out", stagger: 0.05 },
-      "start"
-    )
-    tl.fromTo(
-      `.${styles.image}`,
-      { x: "100vw" },
-      { x: "0", delay: 1.5 },
-      "start"
-    )
-    tl.fromTo(
-      `.${styles.blurbPiece}`,
-      { y: "50vh" },
+      `.${styles.headingText}`,
+      { yPercent: 100 },
       {
-        y: "0",
-        duration: 1.5,
-        delay: 1,
-        ease: "expo.out",
-        stagger: 0.05,
+        yPercent: 0,
+        ease: "expo.inOut",
+        duration: 1.75,
+        stagger: 0.07,
       },
       "start"
     )
+      .fromTo(
+        `.${styles.headingSubtext}`,
+        { opacity: 0 },
+        { opacity: 1, ease: "expo.inOut", duration: 1.5, delay: 1 },
+        "start"
+      )
+      .fromTo(
+        `.${styles.button}`,
+        { opacity: 0 },
+        { opacity: 1, ease: "expo.inOut", duration: 1.5, delay: 1.5 },
+        "start"
+      )
+
+    // tl.fromTo(
+    //   `.${styles.container}`,
+    //   { y: "100vh" },
+    //   { y: "0", ease: "expo.out" },
+    //   "start"
+    // )
+    // tl.fromTo(
+    //   `.${styles.roleChar}`,
+    //   { y: "100vh" },
+    //   { y: "0", ease: "expo.out", stagger: 0.05 },
+    //   "start"
+    // )
+    // tl.fromTo(
+    //   `.${styles.nameChar}`,
+    //   { y: "100vh" },
+    //   { y: "0", duration: 1.5, ease: "expo.out", stagger: 0.05 },
+    //   "start"
+    // )
+    // tl.fromTo(
+    //   `.${styles.image}`,
+    //   { x: "100vw" },
+    //   { x: "0", delay: 1.5 },
+    //   "start"
+    // )
+    // tl.fromTo(
+    //   `.${styles.blurbPiece}`,
+    //   { y: "50vh" },
+    //   {
+    //     y: "0",
+    //     duration: 1.5,
+    //     delay: 1,
+    //     ease: "expo.out",
+    //     stagger: 0.05,
+    //   },
+    //   "start"
+    // )
   }, [pathname])
 
   const enterAnimation = () => {
@@ -102,31 +129,36 @@ export default function Homepage() {
 
   return (
     <div className={styles.container} ref={homepageContainerRef}>
-      <div className={styles.innerWrapperTop}>
-        <div className={styles.roleWrapper}>
+      {/* <div className={styles.innerWrapperTop}> */}
+      <div style={{ marginTop: "3rem" }}>
+        <div className={styles.headingTextContainer}>
+          <h1 className={`${montserrat.className} ${styles.headingText}`}>
+            NATE COHEN
+          </h1>
+        </div>
+        <div className={styles.headingTextContainer}>
+          <h1 className={`${montserrat.className} ${styles.headingText}`}>
+            SOFTWARE ENGINEER
+          </h1>
+        </div>
+        <div className={styles.subtextContainer}>
+          <p className={`${styles.headingSubtext}`}>
+            I'm a self-taught Full Stack Engineer based in Brooklyn, NY. I love
+            art, creating, and bringing interesting ideas to life.
+          </p>
+        </div>
+        <button className={styles.button}>Let's Connect</button>
+      </div>
+      {/* <div className={styles.roleWrapper}>
           <h1 className={`${oswald.className} ${styles.topRole}`}>
-            <span className={styles.roleChar}>S</span>
-            <span className={styles.roleChar}>O</span>
-            <span className={styles.roleChar}>F</span>
-            <span className={styles.roleChar}>T</span>
-            <span className={styles.roleChar}>W</span>
-            <span className={styles.roleChar}>A</span>
-            <span className={styles.roleChar}>R</span>
-            <span className={styles.roleChar}>E</span>
+            NATE COHEN
           </h1>
           <br />
           <h1 className={`${oswald.className} ${styles.topRole}`}>
-            <span className={styles.roleChar}>E</span>
-            <span className={styles.roleChar}>N</span>
-            <span className={styles.roleChar}>G</span>
-            <span className={styles.roleChar}>I</span>
-            <span className={styles.roleChar}>N</span>
-            <span className={styles.roleChar}>E</span>
-            <span className={styles.roleChar}>E</span>
-            <span className={styles.roleChar}>R</span>
+            SOFTWARE ENGINEER
           </h1>
-        </div>
-        <div
+        </div> */}
+      {/* <div
           style={{
             display: "flex",
             flex: "0 1 35%",
@@ -142,9 +174,9 @@ export default function Homepage() {
               height={undefined}
             />
           </div>
-        </div>
-      </div>
-      <div className={styles.wrapperBottom}>
+        </div> */}
+      {/* </div> */}
+      {/* <div className={styles.wrapperBottom}>
         <div className={styles.innerWrapperBottom}>
           <div className={styles.blurbWrapper}>
             <h3 className={styles.blurb}>
@@ -191,7 +223,7 @@ export default function Homepage() {
             </h1>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

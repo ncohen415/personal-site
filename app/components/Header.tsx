@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useLayoutEffect, useRef } from "react"
 import styles from "@/app/styles/header.module.css"
-import { Oswald } from "next/font/google"
+import { Oswald, Montserrat } from "next/font/google"
 import Link from "next/link"
 import { Menu } from "react-feather"
 import { X } from "react-feather"
@@ -15,6 +15,11 @@ import { usePathname } from "next/navigation"
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "200", "300", "500", "600", "700"],
+})
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 interface HeaderProps {
@@ -173,8 +178,79 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div ref={heightRef} className={styles.fullContainer}>
       <div className={`${styles.container}`}>
-        <ul className={styles.navContainer}>
-          <div className={styles.brandContainer}>
+        <ul
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+          }}
+        >
+          <div style={{ display: "flex", flex: "0 1 50%" }}>
+            <div
+              style={{
+                display: "flex",
+                flex: "0 1 30%",
+                justifyContent: "flex-start",
+              }}
+            >
+              <Link href="/">
+                <p style={{ fontSize: "22px", fontWeight: "700" }}>Nate.</p>
+              </Link>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flex: "0 1 30%",
+                justifyContent: "flex-start",
+              }}
+            >
+              <a href={`mailto:nate.cohen415@gmail.com`}>
+                <p
+                  style={{
+                    fontSize: "18px",
+                  }}
+                >
+                  Open to work
+                </p>
+              </a>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flex: "0 1 50%",
+              justifyContent: "flex-end",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flex: "0 1 30%",
+                justifyContent: "flex-end",
+              }}
+            >
+              <p style={{ fontSize: "18px" }}>
+                <Link href="/work">
+                  Work<span>, </span>
+                </Link>
+                <Link href="/about">
+                  About<span>, </span>
+                </Link>
+                <Link href="/resume">Resume</Link>
+              </p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flex: "0 1 30%",
+                justifyContent: "flex-end",
+              }}
+            >
+              <p style={{ fontSize: "18px" }}>Contact</p>
+            </div>
+          </div>
+          {/* <div className={styles.brandContainer}>
             <Link
               className={styles.animationContainer}
               style={{ height: "45px" }}
@@ -187,7 +263,7 @@ const Header: React.FC<HeaderProps> = ({
                 onMouseLeave={() =>
                   exitHover(styles.nateInitial, styles.nateHover)
                 }
-                className={`${styles.animationItemsWrapper} ${oswald.className}`}
+                className={`${styles.animationItemsWrapper} ${montserrat.className}`}
               >
                 <div className={styles.nateInitial}>Nate Cohen</div>
                 <div className={styles.nateHover}>Nate Cohen</div>
@@ -204,7 +280,7 @@ const Header: React.FC<HeaderProps> = ({
                 onMouseLeave={() =>
                   exitHover(styles.basedInitial, styles.basedHover)
                 }
-                className={`${styles.animationItemsWrapper} ${oswald.className}`}
+                className={`${styles.animationItemsWrapper} ${montserrat.className}`}
               >
                 <div className={styles.basedInitial}>Based in Brooklyn, NY</div>
                 <div className={styles.basedHover}>Based in Brooklyn, NY</div>
@@ -224,7 +300,7 @@ const Header: React.FC<HeaderProps> = ({
                 onMouseLeave={() =>
                   exitHover(styles.contactInitial, styles.contactHover)
                 }
-                className={`${styles.animationItemsWrapper} ${oswald.className}`}
+                className={`${styles.animationItemsWrapper} ${montserrat.className}`}
               >
                 <div className={styles.contactHover}>Contact</div>
                 <div className={styles.contactInitial}>Contact</div>
@@ -251,10 +327,10 @@ const Header: React.FC<HeaderProps> = ({
                 <div className={styles.menu}>Menu</div>
               </div>
             </a>
-          </div>
+          </div> */}
         </ul>
       </div>
-      <motion.div
+      {/* <motion.div
         className={styles.menuContainer}
         animate={toggleMenu ? "open" : "closed"}
         initial={"closed"}
@@ -299,7 +375,7 @@ const Header: React.FC<HeaderProps> = ({
             style={{ cursor: "pointer" }}
             onClick={() => handleNavigate("/")}
           >
-            <h1 style={{ fontWeight: "700" }} className={oswald.className}>
+            <h1 style={{ fontWeight: "700" }} className={montserrat.className}>
               Nate Cohen
             </h1>
           </div>
@@ -307,7 +383,7 @@ const Header: React.FC<HeaderProps> = ({
           <ul>
             <li
               style={{ fontWeight: "700" }}
-              className={`${styles.menuItem} ${oswald.className}`}
+              className={`${styles.menuItem} ${montserrat.className}`}
             >
               <div
                 style={{ cursor: "pointer" }}
@@ -318,7 +394,7 @@ const Header: React.FC<HeaderProps> = ({
             </li>
             <li
               style={{ fontWeight: "700" }}
-              className={`${styles.menuItem} ${oswald.className}`}
+              className={`${styles.menuItem} ${montserrat.className}`}
             >
               <div
                 style={{ cursor: "pointer" }}
@@ -329,7 +405,7 @@ const Header: React.FC<HeaderProps> = ({
             </li>
             <li
               style={{ fontWeight: "700" }}
-              className={`${styles.menuItem} ${oswald.className}`}
+              className={`${styles.menuItem} ${montserrat.className}`}
             >
               <div
                 style={{ cursor: "pointer" }}
@@ -345,7 +421,7 @@ const Header: React.FC<HeaderProps> = ({
             Contact
           </a>
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   )
 }

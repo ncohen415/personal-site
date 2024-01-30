@@ -56,6 +56,16 @@
   display: block;
 }
 
+.portrait {
+  margin-top: 6rem;
+  border-radius: 30px;
+  height: 85vh;
+  width: 100%;
+  background-image: url("../../public/images/mirror.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
 @media (min-width: 913px) {
   .heading {
     height: 250px;

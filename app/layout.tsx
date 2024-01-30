@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Montserrat } from "next/font/google"
+import { Inter, Montserrat, Lato } from "next/font/google"
 import "./globals.css"
 import Header from "@/app/components/Header"
 import PageLayout from "@/app/components/PageLayout"
@@ -16,6 +16,10 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+})
 
 export const metadata: Metadata = {
   title: "Nate Cohen",
@@ -29,14 +33,16 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-white`}>
+      <body className={`${lato.className} bg-white`}>
         <Header
           homepageContainer={`.${homepageStyles.container}`}
           workContainer={`.${workStyles.container}`}
           resumeContainer={`.${resumeStyles.container}`}
           aboutContainer={`.${aboutStyles.container}`}
         />
-        <div className={styles.mainWrapper}>{children}</div>
+        <div className={styles.mainContainer}>
+          <div className={styles.mainInnerWrapper}>{children}</div>
+        </div>
         {/* <PageLayout>{children}</PageLayout> */}
       </body>
     </html>
