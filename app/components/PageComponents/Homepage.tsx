@@ -130,7 +130,7 @@ export default function Homepage() {
   return (
     <div className={styles.container} ref={homepageContainerRef}>
       {/* <div className={styles.innerWrapperTop}> */}
-      <div style={{ marginTop: "3rem" }}>
+      {/* <div style={{ marginTop: "3rem" }}>
         <div className={styles.headingTextContainer}>
           <h1 className={`${montserrat.className} ${styles.headingText}`}>
             NATE COHEN
@@ -148,7 +148,7 @@ export default function Homepage() {
           </p>
         </div>
         <button className={styles.button}>Let's Connect</button>
-      </div>
+      </div> */}
       {/* <div className={styles.roleWrapper}>
           <h1 className={`${oswald.className} ${styles.topRole}`}>
             NATE COHEN

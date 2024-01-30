@@ -76,7 +76,7 @@ const PageHeading: React.FC<PageHeadingProps> = ({
           <p className={`${styles.headingSubtext}`}>{subtext}</p>
         </div>
         {connectButton && (
-          <button className={styles.button}>Let's Connect</button>
+          <button className={styles.button}>{`Let's Connect`}</button>
         )}
       </div>
     </div>
