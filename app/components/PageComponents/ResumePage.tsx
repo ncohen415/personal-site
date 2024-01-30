@@ -510,6 +510,7 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
                             (bullet: string, index: number) => {
                               return (
                                 <li
+                                  key={index}
                                   style={{
                                     color: "#868788",
                                     marginBottom: "1rem",
