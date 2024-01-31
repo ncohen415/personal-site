@@ -1,29 +1,77 @@
 import React from "react"
-import styles from "@/app/styles/work.module.css"
-import { Archivo_Black, Archivo, Oswald } from "next/font/google"
-import { motion } from "framer-motion"
 import { getWork } from "../actions"
-import WorkAccordion from "@/app/components/WorkAccordion"
-import Header from "@/app/components/Header"
-import WorkPage from "@/app/components/PageComponents/WorkPage"
+import PageHeading from "../components/PageHeading"
+import PageBody from "../components/PageBody"
+import styles from "@/app/styles/work.module.css"
 
-const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] })
-const archivo = Archivo({ subsets: ["latin"], weight: ["400"] })
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "200", "300", "500", "600", "700"],
-})
+import Project from "@/app/components/Project"
+
+interface Work {
+  projectTitle: string
+  projectDescription: string
+  projectProductionLink: string
+  projectHomepageLink: string
+  projectType: string
+  projectShortDescription: string
+  projectLogo: Record<string, string>
+  projectBackgroundImage: Record<string, string>
+}
 
 const Work = async () => {
   const data = await getWork()
   const prodWork = data.data.allWorkItems.filter(
-    (item: any) => item.projectType === "work"
+    (item: Work) => item.projectType === "work"
   )
   const conceptWork = data.data.allWorkItems.filter(
-    (item: any) => item.projectType === "concept"
+    (item: Work) => item.projectType === "concept"
   )
 
-  const work = data.data.allWorkItems
-  return <WorkPage prodWork={prodWork} conceptWork={conceptWork} />
+  return (
+    <div className={styles.container}>
+      <PageHeading
+        line1={`SELECTED WORK`}
+        subtext={`Take a look at what I've been working on lately. Keep scrolling to see some concepts.`}
+        connectButton={false}
+      />
+      <PageBody>
+        <div className={styles.section}>
+          <div className={styles.sectionHeading}>
+            <h1 className={styles.sectionHeadingText}>{`PRODUCTION WORK`}</h1>
+          </div>
+        </div>
+        <hr style={{ marginBottom: "3rem", marginTop: "3rem" }} />
+        <div style={{ marginBottom: "6rem" }}>
+          {prodWork.map((work: Work, index: number) => {
+            return (
+              <Project
+                key={index}
+                work={work}
+                includeInfo={true}
+                includeLink={true}
+              />
+            )
+          })}
+        </div>
+        <div className={styles.section}>
+          <div className={styles.sectionHeading}>
+            <h1 className={styles.sectionHeadingText}>{`CONCEPT WORK`}</h1>
+          </div>
+        </div>
+        <hr style={{ marginBottom: "3rem", marginTop: "3rem" }} />
+        <div style={{ marginBottom: "6rem" }}>
+          {conceptWork.map((work: object, index: number) => {
+            return (
+              <Project
+                key={index}
+                work={work}
+                includeInfo={true}
+                includeLink={true}
+              />
+            )
+          })}
+        </div>
+      </PageBody>
+    </div>
+  )
 }
 export default Work

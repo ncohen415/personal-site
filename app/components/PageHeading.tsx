@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation"
 interface PageHeadingProps {
   line1: string
   line2?: string
-  subtext: string
+  subtext?: string
   connectButton: boolean
 }
 const montserrat = Montserrat({
@@ -30,7 +30,7 @@ const PageHeading: React.FC<PageHeadingProps> = ({
     tl.add("start")
     tl.fromTo(
       `.${styles.headingText}`,
-      { yPercent: 100 },
+      { yPercent: 125 },
       {
         yPercent: 0,
         ease: "expo.inOut",
@@ -73,7 +73,7 @@ const PageHeading: React.FC<PageHeadingProps> = ({
           ""
         )}
         <div className={styles.subtextContainer}>
-          <p className={`${styles.headingSubtext}`}>{subtext}</p>
+          <p className={`${styles.headingSubtext}`}>{subtext ? subtext : ""}</p>
         </div>
         {connectButton && (
           <button className={styles.button}>{`Let's Connect`}</button>

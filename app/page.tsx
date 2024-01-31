@@ -10,12 +10,14 @@ const oswald = Oswald({
 
 export default function Page() {
   return (
-    <PageHeading
-      line1={`NATE COHEN`}
-      line2={`SOFTWARE ENGINEER`}
-      subtext={`I'm a self-taught Full Stack Engineer based in Brooklyn, New York. I love
+    <div className={styles.container}>
+      <PageHeading
+        line1={`NATE COHEN`}
+        line2={`SOFTWARE ENGINEER`}
+        subtext={`I'm a self-taught Full Stack Engineer based in Brooklyn, New York. I love
   art, creating, and bringing interesting ideas to life.`}
-      connectButton={true}
-    />
+        connectButton={true}
+      />
+    </div>
   )
 }

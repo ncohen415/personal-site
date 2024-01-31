@@ -1,0 +1,13 @@
+.container {
+  margin: 0.5rem;
+  height: 50vh;
+  background-color: red;
+  border-radius: 15px;
+}
+
+@media (min-width: 909px) {
+  .container {
+    flex: 0 1 calc(25% - 0.5rem);
+    height: 75vh;
+  }
+}

@@ -39,7 +39,7 @@
 }
 
 .headingTextContainer {
-  height: 100px;
+  height: 28px;
   overflow: hidden;
 }
 
@@ -47,17 +47,71 @@
   margin-bottom: 3rem;
 }
 .headingText {
-  font-size: 125px;
+  font-size: 28px;
+  line-height: 23px;
   font-weight: 700;
-  /* letter-spacing: -2px; */
-  line-height: 100px;
-  /* margin-left: -2px; */
 }
 .subtextContainer {
-  width: 50%;
+  width: 100%;
   margin-bottom: 2rem;
 }
 .headingSubtext {
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 22px;
+  line-height: 27px;
+}
+
+@media (min-width: 500px) {
+  .headingTextContainer {
+    height: 39px;
+  }
+  .headingText {
+    font-size: 39px;
+    line-height: 34px;
+  }
+  .headingSubtext {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+@media (min-width: 909px) {
+  .headingTextContainer {
+    height: 71px;
+  }
+  .headingText {
+    font-size: 71px;
+    line-height: 66px;
+  }
+  .subtextContainer {
+    width: 75%;
+  }
+  .headingSubtext {
+    font-size: 28px;
+    line-height: 33px;
+  }
+}
+@media (min-width: 1306px) {
+  .headingTextContainer {
+    height: 102px;
+  }
+  .headingText {
+    font-size: 102px;
+    line-height: 97px;
+  }
+  .subtextContainer {
+    width: 50%;
+    margin-bottom: 2rem;
+  }
+  .headingSubtext {
+    font-size: 30px;
+    line-height: 35px;
+  }
+}
+@media (min-width: 1600px) {
+  .headingTextContainer {
+    height: 100px;
+  }
+  .headingText {
+    font-size: 125px;
+    line-height: 100px;
+  }
 }
