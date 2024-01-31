@@ -24,6 +24,16 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Nate Cohen",
   description: "I want to bring your ideas to life",
+  openGraph: {
+    type: "website",
+    url: "https://natecohen.dev",
+    title: "Nate Cohen",
+    description: "I want to bring your ideas to life",
+    siteName: "Nate Cohen",
+    images: [
+      { url: "https://www.datocms-assets.com/116194/1706745256-headshot.png" },
+    ],
+  },
 }
 
 export default async function RootLayout({
