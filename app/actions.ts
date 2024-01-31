@@ -1,7 +1,7 @@
 "use server"
 import { unstable_noStore, unstable_cache } from "next/cache"
 
-export async function getBackgroundImages() {
+export async function getWeightlifting() {
   try {
     const data = await fetch("https://graphql.datocms.com/", {
       method: "POST",
@@ -11,16 +11,44 @@ export async function getBackgroundImages() {
         Authorization: `Bearer ${process.env.DATO_GRAPHQL_API_KEY}`,
       },
       body: JSON.stringify({
-        query: `{
-            allImages(filter: {imageType: {eq: "background"}}) {
+        query: `
+        {
+          allWeightliftingVidows {
+            weightliftingVideo {
+              video {
+                mp4Url
+              }
+            }
+          }
+        }
+          
+          `,
+      }),
+    })
+    return data.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+export async function getImages() {
+  try {
+    const data = await fetch("https://graphql.datocms.com/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${process.env.DATO_GRAPHQL_API_KEY}`,
+      },
+      body: JSON.stringify({
+        query: `
+          {
+            allPhotographyImages {
               image {
                 url
-                height
               }
-              imageColor
-              imageType
             }
           }
+          
           `,
       }),
     })
@@ -29,37 +57,6 @@ export async function getBackgroundImages() {
     console.log(error)
   }
 }
-
-export async function getPortraitImages() {
-  try {
-    const data = await fetch("https://graphql.datocms.com/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${process.env.DATO_GRAPHQL_API_KEY}`,
-      },
-      body: JSON.stringify({
-        query: `{
-            allImages(filter: {imageType: {eq: "no_bg_portrait"}}) {
-              image {
-                url,
-                width,
-                height
-              }
-              imageColor
-              imageType
-            }
-          }
-          `,
-      }),
-    })
-    return data.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 export async function getWork() {
   try {
     const data = await fetch("https://graphql.datocms.com/", {

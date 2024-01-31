@@ -6,6 +6,7 @@ import PageBody from "@/app/components/PageBody"
 import styles from "@/app/styles/about.module.css"
 import { Montserrat } from "next/font/google"
 import AboutFrame from "../components/AboutFrame"
+import { getImages, getWeightlifting } from "../actions"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,7 +35,14 @@ features, I focus on delivering a seamless user experience.`,
   },
 ]
 
-const About = () => {
+const About = async () => {
+  const photoData = await getImages()
+  const weightLiftingData = await getWeightlifting()
+  const weightlifting =
+    weightLiftingData.data.allWeightliftingVidows[0].weightliftingVideo.video
+      .mp4Url
+  const photos = photoData.data.allPhotographyImages
+
   return (
     <div className={styles.container}>
       <PageHeading
@@ -43,6 +51,7 @@ const About = () => {
         subtext={`Learn more about my journey, services, and interests.`}
         connectButton={false}
       />
+
       <PageBody>
         <div style={{ paddingBottom: "6rem" }}>
           <div className={styles.portrait} />
@@ -176,10 +185,9 @@ const About = () => {
             </div>
           </div>
           <div className={styles.sectionSidesWrapper}>
-            <AboutFrame />
-            <AboutFrame />
-            <AboutFrame />
-            <AboutFrame />
+            <AboutFrame type="photo" photos={photos} />
+            <AboutFrame type="weightlifting" weightlifting={weightlifting} />
+            <AboutFrame type="warzone" />
           </div>
         </div>
         <div className={styles.section}>

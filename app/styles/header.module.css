@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
 }
+.hide {
+  display: none !important;
+}
 .container {
   height: 50px;
   width: 100vw;

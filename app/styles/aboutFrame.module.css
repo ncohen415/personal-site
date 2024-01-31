@@ -1,13 +1,31 @@
 .container {
   margin: 0.5rem;
   height: 50vh;
-  background-color: red;
+  /* background-color: red; */
   border-radius: 15px;
+  position: relative;
+}
+
+.innerWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background-size: cover;
+  background-position: top center;
+  overflow: hidden;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow-x: auto;
 }
 
 @media (min-width: 909px) {
   .container {
-    flex: 0 1 calc(25% - 0.5rem);
+    flex: 0 1 calc(33.33333333% - 0.5rem);
     height: 75vh;
   }
 }
