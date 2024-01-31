@@ -1,12 +1,9 @@
 .container {
-  display: block;
-}
-.container {
   display: flex;
   flex-direction: column;
   height: fit-content;
   background-color: white;
-  width: 92%;
+  width: 100%;
 }
 
 .innerWrapperTop {

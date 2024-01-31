@@ -57,10 +57,30 @@ const ResumePage: React.FC<ResumePageProps> = ({ resumeItems }) => {
               complex challenges.
             </h1>
             <ul className={styles.contactList}>
-              <li className={styles.contact}>Linkedin</li>
-              <li className={styles.contact}>Github</li>
-              <li className={styles.contact}>Instagram</li>
-              <li className={styles.contact}>Email</li>
+              <li className={styles.contact}>
+                <a
+                  href="https://www.linkedin.com/in/nathan-levi-cohen-ab1669140/"
+                  target="_blank"
+                >
+                  Linkedin
+                </a>
+              </li>
+              <li className={styles.contact}>
+                <a href="https://github.com/ncohen415/" target="_blank">
+                  Github
+                </a>
+              </li>
+              <li className={styles.contact}>
+                <a
+                  href="https://www.instagram.com/natelcohen/?hl=en"
+                  target="_blank"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li className={styles.contact}>
+                <a href={`mailto:nate.cohen415@gmail.com`}>Email</a>
+              </li>
               <li className={styles.contact}>
                 <Link href="/">Website</Link>
               </li>
