@@ -120,7 +120,10 @@ const About = () => {
                 {`SERVICES`}
               </h1>
             </div>
-            <button className={styles.button}>{`Let's Connect`}</button>
+            <a
+              href={`mailto:nate.cohen415@gmail.com`}
+              className={styles.button}
+            >{`Let's Connect`}</a>
           </div>
           <hr
             style={{ width: "100%", marginTop: "60px", marginBottom: "60px" }}
@@ -190,7 +193,10 @@ const About = () => {
                   <br />
                   {`Let's make it a reality.`}
                 </h2>
-                <button className={styles.button}>{`Let's Connect`}</button>
+                <a
+                  href={`mailto:nate.cohen415@gmail.com`}
+                  className={styles.button}
+                >{`Let's Connect`}</a>
               </div>
             </div>
           </div>
