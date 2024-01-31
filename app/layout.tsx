@@ -3,7 +3,7 @@ import { Inter, Montserrat, Lato } from "next/font/google"
 import "./globals.css"
 import Header from "@/app/components/Header"
 import PageLayout from "@/app/components/PageLayout"
-import { getBackgroundImages } from "@/app/actions"
+
 import styles from "@/app/styles/pageLayout.module.css"
 import { useRouter } from "next/navigation"
 
@@ -43,7 +43,6 @@ export default async function RootLayout({
         <div className={styles.mainContainer}>
           <div className={styles.mainInnerWrapper}>{children}</div>
         </div>
-        {/* <PageLayout>{children}</PageLayout> */}
       </body>
     </html>
   )
