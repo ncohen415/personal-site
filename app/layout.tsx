@@ -31,7 +31,9 @@ export const metadata: Metadata = {
     description: "I want to bring your ideas to life",
     siteName: "Nate Cohen",
     images: [
-      { url: "https://www.datocms-assets.com/116194/1706745256-headshot.png" },
+      {
+        url: "https://www.datocms-assets.com/116194/1706745287-headshot-edited.png",
+      },
     ],
   },
 }

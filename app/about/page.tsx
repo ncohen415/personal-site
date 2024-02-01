@@ -88,7 +88,7 @@ const About = async () => {
                   months familiarized myself with Python and Django and moved
                   into the full stack.`}
                   <strong>
-                    {`From that point I knew I'd found my calling.`}
+                    {` From that point I knew I'd found my calling.`}
                   </strong>
                   <br />
                   <br />
