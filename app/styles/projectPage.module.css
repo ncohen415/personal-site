@@ -160,7 +160,7 @@
   }
 
   .servicesRight {
-    justify-self: flex-end;
+    justify-content: flex-end;
   }
   .servicesLeft {
     margin-bottom: unset;
