@@ -52,24 +52,28 @@ const Work = async () => {
             )
           })}
         </div>
-        <div className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <h1 className={styles.sectionHeadingText}>{`CONCEPT WORK`}</h1>
-          </div>
-        </div>
-        <hr style={{ marginBottom: "3rem", marginTop: "3rem" }} />
-        <div style={{ marginBottom: "6rem" }}>
-          {conceptWork.map((work: object, index: number) => {
-            return (
-              <Project
-                key={index}
-                work={work}
-                includeInfo={true}
-                includeLink={true}
-              />
-            )
-          })}
-        </div>
+        {conceptWork && conceptWork.length > 0 && (
+          <>
+            <div className={styles.section}>
+              <div className={styles.sectionHeading}>
+                <h1 className={styles.sectionHeadingText}>{`CONCEPT WORK`}</h1>
+              </div>
+            </div>
+            <hr style={{ marginBottom: "3rem", marginTop: "3rem" }} />
+            <div style={{ marginBottom: "6rem" }}>
+              {conceptWork.map((work: object, index: number) => {
+                return (
+                  <Project
+                    key={index}
+                    work={work}
+                    includeInfo={true}
+                    includeLink={true}
+                  />
+                )
+              })}
+            </div>
+          </>
+        )}
       </PageBody>
     </div>
   )
